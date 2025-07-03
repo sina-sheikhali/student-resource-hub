@@ -51,7 +51,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center">
       <div className="w-[350px] max-w-md rounded-md border p-4 shadow sm:w-[400px]">
         <h1 className="mb-8 text-xl">ثبت نام </h1>
         <form onSubmit={handleSubmit(signUpHandler)}>
