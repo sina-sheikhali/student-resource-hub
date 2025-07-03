@@ -11,6 +11,7 @@ import { useAuthStore } from "@/store/common/useAuthStore";
 import { useRouter } from "next/navigation";
 import useLoadingStore from "@/store/common/useLoadingStore";
 import { Loader2Icon } from "lucide-react";
+import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -46,58 +47,68 @@ export default function LoginPage() {
   };
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <div className="w-[350px] max-w-md rounded-md border p-4 shadow sm:w-[400px]">
-        <h1 className="mb-8 text-xl">ورود </h1>
-        <form onSubmit={handleSubmit(signInHandler)}>
-          <div className="flex flex-col gap-y-4">
-            <div className="flex flex-col gap-y-px">
-              <Label className={"mr-1 mb-1"} htmlFor="username">
-                ایمیل
-              </Label>
-              <div dir="ltr">
-                <Input
-                  className={"!font-roboto-regular"}
-                  type={"email"}
-                  placeholder="email"
-                  {...register("email")}
-                />
+      <div className="flex items-stretch justify-center gap-x-5 rounded-md border-2 border-gray-200 shadow-xl">
+        <div className="w-[350px] p-5 sm:w-[400px]">
+          <h1 className="mb-8 text-xl font-bold">ورود </h1>
+          <form onSubmit={handleSubmit(signInHandler)}>
+            <div className="flex flex-col gap-y-4">
+              <div className="flex flex-col gap-y-px">
+                <Label className={"mr-1 mb-1"} htmlFor="username">
+                  ایمیل
+                </Label>
+                <div dir="ltr">
+                  <Input
+                    className={"!font-roboto-regular"}
+                    type={"email"}
+                    placeholder="email"
+                    {...register("email")}
+                  />
+                </div>
+                {errors.email && (
+                  <p className="mr-1 text-xs text-red-500">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
-              {errors.email && (
-                <p className="mr-1 text-xs text-red-500">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
-            <div className="flex flex-col gap-y-px">
-              <Label className={"mr-1 mb-1"} htmlFor="username">
-                رمز عبور
-              </Label>
-              <div dir="ltr">
-                <Input
-                  className={"!font-roboto-regular"}
-                  type={"text"}
-                  placeholder="password"
-                  {...register("password")}
-                />
+              <div className="flex flex-col gap-y-px">
+                <Label className={"mr-1 mb-1"} htmlFor="username">
+                  رمز عبور
+                </Label>
+                <div dir="ltr">
+                  <Input
+                    className={"!font-roboto-regular"}
+                    type={"text"}
+                    placeholder="password"
+                    {...register("password")}
+                  />
+                </div>
+                {errors.password && (
+                  <p className="mr-1 text-xs text-red-500">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
-              {errors.password && (
-                <p className="mr-1 text-xs text-red-500">
-                  {errors.password.message}
-                </p>
-              )}
             </div>
-          </div>
-          <div className="mt-5 flex flex-row-reverse justify-between">
-            <Button disabled={isLoading} className={"min-w-[100px]"}>
-              {isLoading ? <Loader2Icon className="animate-spin" /> : "ورود"}
-            </Button>
-            <Link href={"/sign-up"}>
-              <Button variant="link" className={"text-blue-400"}>
-                ثبت نام
+            <div className="mt-5 flex flex-row-reverse justify-between">
+              <Button disabled={isLoading} className={"min-w-[100px]"}>
+                {isLoading ? <Loader2Icon className="animate-spin" /> : "ورود"}
               </Button>
-            </Link>
-          </div>
-        </form>
+              <Link href={"/sign-up"}>
+                <Button variant="link" className={"text-blue-400"}>
+                  ثبت نام
+                </Button>
+              </Link>
+            </div>
+          </form>
+        </div>
+        <div className="hidden items-center border-r-2 border-gray-200 p-5 px-10 md:flex">
+          <Image
+            src="/images/logo-univercity.png"
+            width={200}
+            height={200}
+            alt="logo"
+          />
+        </div>
       </div>
     </div>
   );
