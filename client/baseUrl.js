@@ -1,2 +1,1 @@
-export const baseUrl = "http://mmmovahed.ir/api/v1";
-// export const baseUrl = "http://mmmovahed.ir/api/";
+export const baseUrl = "https://mmmovahed.ir/api/v1";
