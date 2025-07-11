@@ -60,10 +60,10 @@ export default function RatedCourses() {
         >
           {isLoading ? (
             <Skeleton />
-          ) : ratedCourses.length && ratedCourses.length > 0 ? (
+          ) :  ratedCourses?.length > 0 ? (
             ratedCourses.map((item) => (
               <SwiperSlide key={item.id} className="!p-2">
-                <Card tag={[]} {...item} slug={item.id} />
+                <Card  {...item} slug={item.id} />
               </SwiperSlide>
             ))
           ) : (

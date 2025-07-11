@@ -29,7 +29,6 @@ const useTeacherStore = create((set, get) => ({
     client(adminApi.collegeDetails(collegeId))
       .then((res) => {
         setCollegeDetails(res.data.data);
-        console.log(res.data);
       })
       .finally(() => setLoading("collegeDetailsLoading", false));
   },

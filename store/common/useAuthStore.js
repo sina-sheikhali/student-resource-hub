@@ -10,6 +10,7 @@ export const useAuthStore = create((set, get) => ({
     if (isLoading("signInLoading")) return;
 
     setLoading("signInLoading", true);
+
     client
       .post(userApi.signIn, data)
       .then((res) => {

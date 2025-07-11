@@ -1,10 +1,14 @@
-import useCourseStore from "@/store/admin/useCourseStore";
-import { ArchiveBoxXMarkIcon, PencilIcon } from "@heroicons/react/24/solid";
+import {
+  ArchiveBoxXMarkIcon,
+  PencilIcon,
+  FolderPlusIcon,
+} from "@heroicons/react/24/solid";
 import { Loader2Icon } from "lucide-react";
 
 export default function ActionTable({
   deleteAction = true,
   editAction = true,
+  resourceAction = false,
   statusAction = false,
   status,
   onDelete,
@@ -15,17 +19,30 @@ export default function ActionTable({
   rowId,
   setRowId,
   setIsOpen,
-  fetchDetails,
+  setIsOpenResourceModal,
+  fetchDetails = false,
 }) {
-
   const handleEdit = () => {
     setRowId(id);
-    fetchDetails(id);
+    fetchDetails && fetchDetails(id);
     setIsOpen(true);
+  };
+  const handelResources = () => {
+    setRowId(id);
+    // fetchDetails(id);
+    setIsOpenResourceModal(true);
   };
 
   return (
     <div className="flex gap-x-2">
+      {resourceAction && (
+        <button
+          onClick={() => handelResources()}
+          className="cursor-pointer rounded-md bg-amber-400 p-1.5"
+        >
+          <FolderPlusIcon className="h-4 w-4 text-white" />
+        </button>
+      )}
       {editAction && (
         <button
           onClick={() => handleEdit()}

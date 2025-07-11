@@ -29,7 +29,7 @@ const useCourseStore = create((set, get) => ({
     if (isLoading("updateCourseLoading")) return;
     setLoading("updateCourseLoading", true);
     client
-      .put(adminApi.courseDetails(id), data)
+      .post(adminApi.courseDetails(id), data)
       .then((res) => {
         if (res.status === 200) {
           toast.success("به روز رسانی انجام شد");
@@ -55,11 +55,13 @@ const useCourseStore = create((set, get) => ({
       .finally(() => setLoading("deleteCourseLoading", false));
   },
   createCourse: (data, reset) => {
+    const { fetchCourses } = get();
+
     const { setLoading, isLoading } = useLoadingStore.getState();
     if (isLoading("createCourseLoading")) return;
     setLoading("createCourseLoading", true);
     client
-      .post(adminApi.createCourse, { ...data, teacher: "11" })
+      .post(adminApi.createCourseTeacher, data)
       .then((res) => {
         if (res.status === 200) {
           toast.success("دوره اضافه شد");
@@ -70,6 +72,7 @@ const useCourseStore = create((set, get) => ({
             college_id: "",
             status: "",
           });
+          fetchCourses();
         }
       })
       .finally(() => setLoading("createCourseLoading", false));

@@ -17,7 +17,6 @@ import Skeleton from "@/components/modules/Skeleton/Skeleton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function NewlyAddedCourses() {
   const { newlyAddedCourses, fetchByFilter } = useCourseStore();
-  console.log(newlyAddedCourses);
 
   const isLoading = useLoadingStore((state) =>
     state.isLoading("mostwantedLoading"),
@@ -61,10 +60,10 @@ export default function NewlyAddedCourses() {
         >
           {isLoading ? (
             <Skeleton />
-          ) : newlyAddedCourses.length && newlyAddedCourses.length > 0 ? (
+          ) :  newlyAddedCourses?.length > 0 ? (
             newlyAddedCourses.map((item) => (
               <SwiperSlide key={item.id} className="!p-2">
-                <Card tag={[]} {...item} slug={item.id} />
+                <Card  {...item} slug={item.id} />
               </SwiperSlide>
             ))
           ) : (

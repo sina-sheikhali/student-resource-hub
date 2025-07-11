@@ -1,46 +1,28 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { User } from "lucide-react";
+import { User, Users } from "lucide-react";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { baseUrl } from "@/client/baseUrl";
 
 export default function Card({
   _id,
   slug,
+  thumbnail_path,
   name,
   teacher,
   ratings_avg_rating,
   thumbnailUrl,
-  duration,
+  users_count,
   tag,
   userRating,
 }) {
-  const [stars, setStars] = useState(
-    () => Number(localStorage.getItem(`stars-${slug}`)) || userRating || 0,
-  );
-  const [hoveredStar, setHoveredStar] = useState(null);
-
-  //   const { changeRating } = useTutorialStore();
-
-  // آپدیت مقدار ستاره‌ها و ذخیره در localStorage
-  const handleStarClick = (idx) => {
-    const storedRating = localStorage.getItem(`stars-${slug}`);
-    if (!storedRating && userRating === null) {
-      setStars(idx + 1);
-      localStorage.setItem(`stars-${slug}`, idx + 1);
-      //   changeRating({
-      //     courseId: _id,
-      //     rate: localStorage.getItem(`stars-${slug}`),
-      //   });
-    }
-  };
-
   return (
     <div className="flex transform flex-col gap-4 rounded-3xl border bg-white p-4 transition duration-500 hover:scale-105">
       <div className="">
         <Link href={`/dashboard/courses/${slug}`}>
           <Image
-            src={""}
+            src={`https://mmmovahed.ir/storage/${thumbnail_path}`}
             width={200}
             height={200}
             className="h-[200px] w-full object-cover"
@@ -70,40 +52,22 @@ export default function Card({
             <User />
             <span>{teacher}</span>
           </div>
-          <div className="flex items-center gap-x-0.5 text-yellow-500">
-            <span className="block self-start">{ratings_avg_rating}</span>
-            <StarIcon className="h-5 w-5" />
-          </div>
+          {ratings_avg_rating && (
+            <div className="flex items-center gap-x-0.5 text-yellow-500">
+              <span className="block self-start">
+                {ratings_avg_rating && parseInt(ratings_avg_rating).toFixed(1)}
+              </span>
+              <StarIcon className="h-5 w-5" />
+            </div>
+          )}
+          {users_count && (
+            <div className="flex items-center gap-x-0.5 text-gray-800">
+              <span className="block self-start ">{users_count}</span>
+              <Users className="h-5 w-5" />
+            </div>
+          )}
         </div>
       </div>
-
-      {/* <div className="flex justify-between">
-          <div className="flex flex-row-reverse gap-x-0.5">
-            {Array(5)
-              .fill(null)
-              .map((item, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleStarClick(idx)}
-                  onMouseEnter={() => setHoveredStar(idx)}
-                  onMouseLeave={() => setHoveredStar(null)}
-                >
-                  <FaStar
-                    className={` ${
-                      idx <=
-                      (hoveredStar !== null && !stars ? hoveredStar : stars - 1)
-                        ? "text-[#E0B31D]"
-                        : "text-[#E0B31D]/50"
-                    }`}
-                  />
-                </button>
-              ))}
-          </div>
-          <div className="text-primaryTextBox flex items-center gap-2">
-             <LuClock5 className="mt-1" /> 
-             <span>{duration ? formatTime(duration) : "00:00"}</span>
-           </div> 
-         </div>  */}
     </div>
   );
 }

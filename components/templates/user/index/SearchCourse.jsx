@@ -4,25 +4,38 @@ import { useState, useCallback, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import Card from "@/components/modules/Card/Card";
 import debounce from "lodash.debounce";
-
-const mockCourses = [{ id: 1, title: "دوره جاوااسکریپت مقدماتی" }];
+import useCourseStore from "@/store/user/useCourseStore";
+import useLoadingStore from "@/store/common/useLoadingStore";
+import { Loader2Icon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function SearchCourses() {
   const [query, setQuery] = useState("");
-  const [filteredCourses, setFilteredCourses] = useState(mockCourses);
+  const [openSearchResult, setOpenSearchResult] = useState(false);
+
+  const { serachCourse, searchResult, setSearchResult } = useCourseStore();
+  const searchCourseLoading = useLoadingStore((state) =>
+    state.isLoading("searchCourseLoading"),
+  );
 
   const handleSearch = useCallback(
     debounce((value) => {
-      const results = mockCourses.filter((course) =>
-        course.title.toLowerCase().includes(value.toLowerCase()),
-      );
-      setFilteredCourses(results);
+      serachCourse(value);
     }, 300),
     [],
   );
 
   useEffect(() => {
-    handleSearch(query);
+    if (query.trim() !== "") {
+      handleSearch(query);
+      setOpenSearchResult(true);
+    } else {
+      setSearchResult("");
+      setOpenSearchResult(false);
+    }
+    return () => {
+      handleSearch.cancel(); // از debounce پاک‌سازی می‌کنه
+    };
   }, [query, handleSearch]);
 
   return (
@@ -36,19 +49,42 @@ export default function SearchCourses() {
           className="placeholder:font-yekan mb-4"
         />
       </div>
-      <div className="grid grid-cols-1 gap-5 space-y-2 bg-gray-50 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filteredCourses.length > 0 ? (
-          filteredCourses.map((course) => (
-            <div key={course.id} className="col-span-1">
-              <Card tag={[]} />
+
+      <AnimatePresence>
+        {openSearchResult && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div>
+              <h3 className="mb-5 text-xl font-bold">نتایج جستجو ... </h3>
             </div>
-          ))
-        ) : (
-          <p className="col-span-full py-10 text-center text-red-400">
-            دوره‌ای یافت نشد.
-          </p>
+            <div className="grid min-h-[408px] grid-cols-1 gap-5 space-y-2 rounded-sm bg-gray-50 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {!searchCourseLoading ? (
+                searchResult.length > 0 ? (
+                  searchResult.map((course) => (
+                    <div key={course.id} className="col-span-1">
+                      <Card slug={course.id} {...course} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-full flex items-center justify-center">
+                    <p className="py-10 text-center text-red-400">
+                      دوره‌ای یافت نشد.
+                    </p>
+                  </div>
+                )
+              ) : (
+                <div className="col-span-full flex items-center justify-center">
+                  <Loader2Icon className="h-8 w-8 animate-spin text-red-400" />
+                </div>
+              )}
+            </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </div>
   );
 }

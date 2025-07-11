@@ -31,7 +31,7 @@ export default function MostWanted() {
       <div className="mb-5">
         <SectionTitle text={"پربازدید ترین ها"} color="bg-red-500" />
       </div>
-      <div className="relative rounded-sm bg-gray-50 p-3">
+      <div className="relative overflow-hidden rounded-sm bg-gray-50 p-3">
         <Swiper
           slidesPerView={4}
           spaceBetween={5}
@@ -59,10 +59,10 @@ export default function MostWanted() {
         >
           {isLoading ? (
             <Skeleton />
-          ) : mostWantedCourses.length && mostWantedCourses.length > 0 ? (
+          ) : mostWantedCourses?.length > 0 ? (
             mostWantedCourses.map((item) => (
               <SwiperSlide key={item.id} className="!p-2">
-                <Card tag={[]} {...item} slug={item.id} />
+                <Card {...item} slug={item.id} />
               </SwiperSlide>
             ))
           ) : (

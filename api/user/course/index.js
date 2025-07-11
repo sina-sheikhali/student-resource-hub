@@ -1,7 +1,11 @@
 export const courseApi = {
   fetchCourseByFilter: "/filters",
   fetchCourseDetails: (id) => `/courses/${id}`,
-  insertRate: (id) => `/rating/${id}`,
-  getInrollment: "/enrollment",
-  registerCourse: "/register",
+  insertRate: "/ratings",
+  getEnrollment: "/enrollments",
+  registerCourse: "/enrollments",
+  fetchMyCourses: "/my-courses",
+  fetchComments: (id) => `/comments/${id}`,
+  createComment: "/comments",
+  searchCourse: (value) => `/courses/search?q=${value}`,
 };

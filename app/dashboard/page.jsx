@@ -8,7 +8,9 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col gap-y-5">
       <SearchCourses />
-      <MyCourses />
+      <div className="">
+        <MyCourses />
+      </div>
     </div>
   );
 }

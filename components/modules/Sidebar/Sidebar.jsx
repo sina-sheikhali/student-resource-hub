@@ -22,12 +22,12 @@ import {
   BookCheck,
   House,
   LogOut,
-  Settings,
   Menu,
   ChartBarStacked,
   University,
   SquareUserRound,
   BookPlus,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Cookies from "js-cookie";
@@ -41,11 +41,6 @@ const menuItemsUser = [
     label: "دوره‌ها",
     icon: <BookCheck size={20} />,
     path: "/dashboard/courses",
-  },
-  {
-    label: "تنظیمات",
-    icon: <Settings size={20} />,
-    path: "/dashboard/setting",
   },
 ];
 
@@ -62,6 +57,11 @@ const menuItemsAdmin = [
     label: "اساتید",
     icon: <SquareUserRound size={20} />,
     path: "/admin/teachers",
+  },
+  {
+    label: "دانشجویان",
+    icon: <Users size={20} />,
+    path: "/admin/students",
   },
   {
     label: "دسته بندی ها",
@@ -131,11 +131,13 @@ export default function Sidebar() {
         </div>
         <SheetContent side="right" className="w-[250px] bg-white p-0">
           {/* ✅ این قسمت رو اضافه کن */}
-          <SheetHeader >
-            <SheetTitle className="sr-only">منوی کناری</SheetTitle>
+          <SheetHeader>
+            <SheetTitle className="">
+              <span className="text-lg">منو</span>
+            </SheetTitle>
           </SheetHeader>
 
-          <div className=" flex h-full flex-col  p-4">
+          <div className="flex h-full flex-col px-4">
             <ul>
               {menuItems.map((item) => (
                 <li key={item.path} className="mb-2">
@@ -169,7 +171,7 @@ export default function Sidebar() {
       <div className="relative flex">
         <ShadSidebar className="transition-width flex w-64 flex-col bg-white shadow-lg duration-300 ease-in-out">
           <SidebarHeader className="border-b p-4">
-            <h1 className="text-xl font-bold">نام کاربری</h1>
+            <h1 className="text-xl font-bold">خوش آمدید</h1>
           </SidebarHeader>
           <SidebarContent className="flex-1 overflow-y-auto p-4">
             <SidebarMenu>

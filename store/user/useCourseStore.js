@@ -7,11 +7,15 @@ const useCourseStore = create((set, get) => ({
   ratedCourses: [],
   newlyAddedCourses: [],
   courseDetails: {},
+  myCourses: [],
+  searchResult: [],
 
   setMostWantedCourses: (mostWantedCourses) => set({ mostWantedCourses }),
   setRatedCourses: (ratedCourses) => set({ ratedCourses }),
   setNewlyAddedCourses: (newlyAddedCourses) => set({ newlyAddedCourses }),
   setCourseDetails: (courseDetails) => set({ courseDetails }),
+  setMyCourses: (myCourses) => set({ myCourses }),
+  setSearchResult: (searchResult) => set({ searchResult }),
 
   fetchByFilter: async (type) => {
     const { setMostWantedCourses, setRatedCourses, setNewlyAddedCourses } =
@@ -42,7 +46,6 @@ const useCourseStore = create((set, get) => ({
       }
     } catch (error) {
       console.error(`Error fetching ${type} courses:`, error);
-      // toast error if needed
     } finally {
       setLoading(loadingKey, false);
     }
@@ -50,11 +53,39 @@ const useCourseStore = create((set, get) => ({
 
   fetchCourseDetails: (courseId) => {
     const { setCourseDetails } = get();
+    const { setLoading, isLoading } = useLoadingStore.getState();
+    if (isLoading("fetchCourseDetails")) return;
+    setLoading("fetchCourseDetails", true);
 
     client(userApi.fetchCourseDetails(courseId))
-      .then((res) => setCourseDetails(res.data))
-      .catch(() => {})
-      .finally(() => {});
+      .then((res) => {
+        setCourseDetails(res.data.data);
+      })
+      .finally(() => setLoading("fetchCourseDetails", false));
+  },
+  fetchMyCourse: () => {
+    const { setMyCourses } = get();
+    const { setLoading, isLoading } = useLoadingStore.getState();
+    if (isLoading("fetchMyCoursesLoading")) return;
+    setLoading("fetchMyCoursesLoading", true);
+
+    client(userApi.fetchMyCourses)
+      .then((res) => {
+        setMyCourses(res.data.data);
+      })
+      .finally(() => setLoading("fetchMyCoursesLoading", false));
+  },
+  serachCourse: (value) => {
+    const { setSearchResult } = get();
+    const { setLoading, isLoading } = useLoadingStore.getState();
+    if (isLoading("searchCourseLoading")) return;
+    setLoading("searchCourseLoading", true);
+
+    client(userApi.searchCourse(value))
+      .then((res) => {
+        setSearchResult(res.data.data);
+      })
+      .finally(() => setLoading("searchCourseLoading", false));
   },
 }));
 

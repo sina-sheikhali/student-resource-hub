@@ -109,7 +109,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {categories.length &&
+                      {categories.length > 0 &&
                         categories.map((cat) => (
                           <SelectItem key={cat.id} value={cat.id.toString()}>
                             {cat.name}
@@ -150,7 +150,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {colleges.length &&
+                      {colleges.length > 0 &&
                         colleges.map((cat) => (
                           <SelectItem key={cat.id} value={cat.id.toString()}>
                             {cat.name}

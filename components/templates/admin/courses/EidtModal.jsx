@@ -13,7 +13,7 @@ import useCourseStore from "@/store/admin/useCourseStore";
 import { Loader2Icon } from "lucide-react";
 import useCollegeStore from "@/store/admin/useCollegeStore";
 import useCategoryStore from "@/store/admin/useCategoryStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function EidtModal({ rowId, setIsOpen }) {
   const isLoadingStore = useLoadingStore();
@@ -25,14 +25,18 @@ export default function EidtModal({ rowId, setIsOpen }) {
   const { categories, fetchCategories } = useCategoryStore();
   const { course, updateCourse } = useCourseStore();
 
+  const [preview, setPreview] = useState(null);
+
   // hook-form
   const {
     control,
     register,
+    watch,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+  const file = watch("image");
   useEffect(() => {
     if (course?.name) {
       reset({
@@ -48,10 +52,29 @@ export default function EidtModal({ rowId, setIsOpen }) {
     fetchCategories();
     fetchAllColleges();
   }, []);
-
-  const onSubmit = (data) => {
-    updateCourse(rowId, data, setIsOpen);
+  // Generate preview when file changes
+  const handlePreview = () => {
+    if (file && file[0]) {
+      const objectUrl = URL.createObjectURL(file[0]);
+      setPreview(objectUrl);
+    }
   };
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("thumbnail_path", data.image[0]);
+
+    // اضافه کردن سایر فیلدها (مثلاً title و description)
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("category_id", data.category_id);
+    formData.append("college_id", data.college_id);
+    updateCourse(rowId, formData, setIsOpen);
+  };
+
+  // const onSubmit = (data) => {
+  //   updateCourse(rowId, data, setIsOpen);
+  // };
 
   return (
     <div className="w-[600px]">
@@ -109,7 +132,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {categories.length &&
+                      {categories.length > 0 &&
                         categories.map((cat) => (
                           <SelectItem key={cat.id} value={cat.id.toString()}>
                             {cat.name}
@@ -150,7 +173,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      {colleges.length &&
+                      {colleges.length > 0 &&
                         colleges.map((cat) => (
                           <SelectItem key={cat.id} value={cat.id.toString()}>
                             {cat.name}
@@ -164,6 +187,18 @@ export default function EidtModal({ rowId, setIsOpen }) {
                 <p className="mt-1 text-sm text-red-500">
                   {errors.college_id.message}
                 </p>
+              )}
+            </div>
+            <div>
+              <input
+                type="file"
+                accept="image/*"
+                {...register("image", { required: true })}
+                onChange={handlePreview}
+                className="border p-2"
+              />
+              {preview && (
+                <img src={preview} alt="Preview" className="w-full rounded" />
               )}
             </div>
             <div className="col-span-full mt-5">

@@ -1,25 +1,28 @@
 "use client";
-
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuthStore } from "@/store/common/useAuthStore";
-import { useRouter } from "next/navigation";
 import useLoadingStore from "@/store/common/useLoadingStore";
 import { Loader2Icon } from "lucide-react";
-import Image from "next/image";
+import PasswordInput from "@/components/modules/PasswordInput/PasswordInput";
 
 export default function LoginPage() {
   const router = useRouter();
+  const inputRef = useRef(null);
 
   const signUp = useAuthStore((state) => state.signUp);
   const isLoading = useLoadingStore((state) =>
     state.isLoading("signUpLoading"),
   );
+  
   // ---------- yup ----------
   const phoneValidationSchema = Yup.object().shape({
     email: Yup.string()
@@ -105,18 +108,11 @@ export default function LoginPage() {
                 <Label className={"mr-1 mb-1"} htmlFor="password">
                   رمز عبور
                 </Label>
-                <div dir="ltr">
-                  <Input
-                    type={"text"}
-                    placeholder="password"
-                    {...register("password")}
-                  />
-                </div>
-                {errors.password && (
-                  <p className="mr-1 text-xs text-red-500">
-                    {errors.password.message}
-                  </p>
-                )}
+                <PasswordInput
+                  inputRef={inputRef}
+                  register={register}
+                  error={errors.password}
+                />
               </div>
             </div>
             <div className="mt-5 flex flex-row-reverse justify-between">

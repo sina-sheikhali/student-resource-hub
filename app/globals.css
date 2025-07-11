@@ -48,6 +48,16 @@ body {
 @theme {
   --font-yekan: "Yekan", sans-serif;
   --font-roboto-regular: "roboto-regular", sans-serif;
+
+  --animate-widthUpload: widthUpload 0.5s forwards;
+  @keyframes widthUpload {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 }
 
 *,
@@ -197,3 +207,4 @@ body {
 .Toastify__toast {
   font-family: "Yekan", sans-serif !important;
 }
+

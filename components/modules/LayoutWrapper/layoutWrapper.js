@@ -29,7 +29,7 @@ export default function LayoutWrapper({ children }) {
       )}
       <div
         className={`${
-          showSidebar ? "flex-1" : "w-full"
+          showSidebar ? "flex-1 overflow-hidden" : "w-full"
         } min-h-screen px-5 py-20 md:py-5`}
       >
         {children}
