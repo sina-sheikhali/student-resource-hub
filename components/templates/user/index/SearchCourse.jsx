@@ -34,7 +34,7 @@ export default function SearchCourses() {
       setOpenSearchResult(false);
     }
     return () => {
-      handleSearch.cancel(); // از debounce پاک‌سازی می‌کنه
+      handleSearch.cancel();
     };
   }, [query, handleSearch]);
 
@@ -59,7 +59,9 @@ export default function SearchCourses() {
             transition={{ duration: 0.3 }}
           >
             <div>
-              <h3 className="mb-5 text-xl font-bold">نتایج جستجو ... </h3>
+              <h3 className="mb-5 text-lg font-semibold md:text-xl">
+                نتایج جستجو ...
+              </h3>
             </div>
             <div className="grid min-h-[408px] grid-cols-1 gap-5 space-y-2 rounded-sm bg-gray-50 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {!searchCourseLoading ? (
@@ -71,7 +73,7 @@ export default function SearchCourses() {
                   ))
                 ) : (
                   <div className="col-span-full flex items-center justify-center">
-                    <p className="py-10 text-center text-red-400">
+                    <p className="py-10 text-center text-gray-500">
                       دوره‌ای یافت نشد.
                     </p>
                   </div>

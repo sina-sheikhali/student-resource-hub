@@ -6,22 +6,19 @@ import React, { useEffect, useState } from "react";
 import EidtModal from "./EidtModal";
 import { closeModal } from "@/utils/modalUtils";
 import ModalComponent from "@/components/modules/MyModal/MyModal";
+import ResourceModal from "./ResourcesModal";
 
 export default function TableSection() {
-  const {
-    fetchCourses,
-    fetchCourse,
-    courses,
-    deleteCourse,
-    updateCourse,
-    course,
-  } = useCourseStore();
+  const [rowId, setRowId] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenResourceModal, setIsOpenResourceModal] = useState(false);
+
+  const { fetchCourses, fetchCourse, courses, deleteCourse, updateCourse } =
+    useCourseStore();
   const isLoadingStore = useLoadingStore();
   const isFetching = isLoadingStore.isLoading("fetchCoursesLoading");
   const isDeleting = isLoadingStore.isLoading("deleteCourseLoading");
   const isChangeStatus = isLoadingStore.isLoading("updateCourseLoading");
-  const [rowId, setRowId] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
 
   const columns = [
     {
@@ -48,6 +45,7 @@ export default function TableSection() {
         return (
           <AtctionTable
             setIsOpen={setIsOpen}
+            setIsOpenResourceModal={setIsOpenResourceModal}
             id={rowData.id}
             rowId={rowId}
             fetchDetails={fetchCourse}
@@ -66,6 +64,7 @@ export default function TableSection() {
               });
             }}
             statusAction={true}
+            resourceAction={true}
           />
         );
       },
@@ -79,6 +78,14 @@ export default function TableSection() {
     <div>
       <ModalComponent isOpen={isOpen} closeModal={() => closeModal(setIsOpen)}>
         {isOpen && <EidtModal rowId={rowId} setIsOpen={setIsOpen} />}
+      </ModalComponent>
+      <ModalComponent
+        isOpen={isOpenResourceModal}
+        closeModal={() => closeModal(setIsOpenResourceModal)}
+      >
+        {isOpenResourceModal && (
+          <ResourceModal rowId={rowId} setIsOpen={setIsOpenResourceModal} />
+        )}
       </ModalComponent>
       <DataTable columns={columns} data={courses} loading={isFetching} />
     </div>

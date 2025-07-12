@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -130,7 +129,6 @@ export default function Sidebar() {
           </SheetTrigger>
         </div>
         <SheetContent side="right" className="w-[250px] bg-white p-0">
-          {/* ✅ این قسمت رو اضافه کن */}
           <SheetHeader>
             <SheetTitle className="">
               <span className="text-lg">منو</span>
@@ -171,7 +169,7 @@ export default function Sidebar() {
       <div className="relative flex">
         <ShadSidebar className="transition-width flex w-64 flex-col bg-white shadow-lg duration-300 ease-in-out">
           <SidebarHeader className="border-b p-4">
-            <h1 className="text-xl font-bold">خوش آمدید</h1>
+            <h1 className="text-lg font-semibold md:text-xl">خوش آمدید</h1>
           </SidebarHeader>
           <SidebarContent className="flex-1 overflow-y-auto p-4">
             <SidebarMenu>

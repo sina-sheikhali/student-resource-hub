@@ -1,5 +1,4 @@
 "use client";
-
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import { Button } from "@/components/ui/button";
@@ -36,9 +35,6 @@ export default function VideoPlayer({ courseDetails, urlVideo }) {
         </div>
         <div className="mt-auto flex items-center justify-between">
           <div>
-            {/* <Button className={"bg-green-400 hover:bg-green-600/70"}>
-              {enrollment ? "ثبت نام کرده اید" : "ثبت نام"}
-            </Button> */}
             {courseDetails.is_registered ? (
               <Button disabled className={""}>
                 ثبت نام کرده اید

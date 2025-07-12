@@ -22,7 +22,7 @@ export default function Skeleton() {
   }, []);
 
   return (
-    <div className="col-span-full grid w-full grid-cols-1 gap-5 overflow-x-auto  p-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="col-span-full grid w-full grid-cols-1 gap-5 overflow-x-auto p-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: columns }).map((_, idx) => (
         <div
           key={idx}

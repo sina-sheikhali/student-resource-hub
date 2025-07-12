@@ -14,7 +14,7 @@ export default function PieChartComp() {
   return (
     <div>
       <div className="w-full text-center">
-        <h3 className="text-xl font-bold">آمار دانشجویان</h3>
+        <h3 className="text-lg font-semibold md:text-xl">آمار دانشجویان</h3>
       </div>
       <PieChart
         width={300}
@@ -34,7 +34,7 @@ export default function PieChartComp() {
           ))}
         </Pie>
         <Tooltip
-          formatter={(value, name, props) => [`${value} نفر`, `تعداد`]} // متن دلخواه
+          formatter={(value) => [`${value} نفر`, `تعداد`]} // متن دلخواه
           contentStyle={{
             backgroundColor: "#fff",
             borderRadius: "8px",
@@ -49,15 +49,15 @@ export default function PieChartComp() {
         </div>
         <div className="flex items-center justify-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-[#fe7096]"></div>
-          <span className="text-sm">ریاضی</span>
+          <span className="text-sm">ادبیات</span>
         </div>
         <div className="flex items-center justify-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-[#047edf]"></div>
-          <span className="text-sm">ریاضی</span>
+          <span className="text-sm">زبان تخصصی</span>
         </div>
         <div className="flex items-center justify-center gap-x-2">
           <div className="h-3 w-3 rounded-full bg-[#07cdae]"></div>
-          <span className="text-sm">ریاضی</span>
+          <span className="text-sm">ریاضی گسسته</span>
         </div>
       </div>
     </div>

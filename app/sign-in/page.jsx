@@ -51,7 +51,7 @@ export default function LoginPage() {
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex items-stretch justify-center gap-x-5 rounded-md border-2 border-gray-200 shadow-xl">
         <div className="w-[350px] p-5 sm:w-[400px]">
-          <h1 className="mb-8 text-xl font-bold">ورود </h1>
+          <h1 className="mb-8 text-lg font-semibold md:text-xl">ورود </h1>
           <form onSubmit={handleSubmit(signInHandler)}>
             <div className="flex flex-col gap-y-4">
               <div className="flex flex-col gap-y-px">

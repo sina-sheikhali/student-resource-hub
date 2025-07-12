@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import {
   AcademicCapIcon,
   BookOpenIcon,
@@ -7,12 +8,18 @@ import {
 import InfoCard from "@/components/modules/InfoCard/InfoCard";
 import PieChartComp from "@/components/templates/teacher/index/chart/PieChart";
 import ComposedChartComp from "@/components/templates/teacher/index/chart/composedChart";
+import useStatisticStore from "@/store/admin/useStatisticStore";
 
 export default function Teacher() {
+  const { fetchStatistics, statistics } = useStatisticStore();
+
+  useEffect(() => {
+    fetchStatistics();
+  }, []);
   const cards = [
     {
       title: "دانشجویان",
-      data: "320",
+      data: statistics.total_users,
       bgColor: "from-[#f6e384] to-[#ffd500]",
       icon: AcademicCapIcon,
       iconBg: "bg-white",
@@ -20,29 +27,30 @@ export default function Teacher() {
     },
     {
       title: "دوره ها",
-      data: "200",
+      data: statistics.total_courses,
       bgColor: "from-[#ffbf96] to-[#fe7096]",
       icon: BookOpenIcon,
       iconBg: "bg-white",
       iconColor: "text-pink-400",
     },
     {
-      title: "واچ تایم هفتگی ",
-      data: "850",
+      title: "اساتید",
+      data: statistics.total_teachers,
       bgColor: "from-[#90caf9] to-[#047edf]",
       icon: AcademicCapIcon,
       iconBg: "bg-white",
       iconColor: "text-blue-400",
     },
     {
-      title: "واچ تایم ماهانه",
-      data: "850",
+      title: "ادمین",
+      data: statistics.total_admins,
       bgColor: "from-[#84d9d2] to-[#07cdae]",
       icon: ClockIcon,
       iconBg: "bg-white",
       iconColor: "text-teal-400",
     },
   ];
+
   return (
     <div className="flex flex-col gap-y-10">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

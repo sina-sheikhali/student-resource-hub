@@ -40,7 +40,7 @@ export default function StarRating({ courseId, user_rating }) {
   return (
     <div className="direction-ltr flex gap-1">
       {[0, 1, 2, 3, 4].map((index) => {
-        const reversedIndex = 4 - index; // برای چپ به راست
+        const reversedIndex = 4 - index;     
         const fill = getFill(reversedIndex);
 
         return (

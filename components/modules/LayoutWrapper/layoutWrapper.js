@@ -15,7 +15,7 @@ export default function LayoutWrapper({ children }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // یا یه لودر نمایش بده
+  if (!mounted) return null;
 
   const isValidRoute = VALID_ROUTES.includes(segment);
   const showSidebar = isValidRoute && !pathname.endsWith("404");

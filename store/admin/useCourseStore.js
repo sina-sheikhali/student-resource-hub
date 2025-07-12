@@ -54,7 +54,28 @@ const useCourseStore = create((set, get) => ({
       })
       .finally(() => setLoading("deleteCourseLoading", false));
   },
-  createCourse: (data, reset) => {
+  createCourseTeacher: (data, reset, setSelecetedPhoto) => {
+    const { setLoading, isLoading } = useLoadingStore.getState();
+    if (isLoading("createCourseLoading")) return;
+    setLoading("createCourseLoading", true);
+    client
+      .post(adminApi.createCourseTeacher, data)
+      .then((res) => {
+        if (res.status === 200) {
+          toast.success("دوره اضافه شد");
+          reset({
+            name: "",
+            description: "",
+            category_id: "",
+            college_id: "",
+            status: "",
+          });
+          setSelecetedPhoto("");
+        }
+      })
+      .finally(() => setLoading("createCourseLoading", false));
+  },
+  createCourse: (data, reset, setSelecetedPhoto) => {
     const { fetchCourses } = get();
 
     const { setLoading, isLoading } = useLoadingStore.getState();
@@ -72,6 +93,7 @@ const useCourseStore = create((set, get) => ({
             college_id: "",
             status: "",
           });
+          setSelecetedPhoto("");
           fetchCourses();
         }
       })

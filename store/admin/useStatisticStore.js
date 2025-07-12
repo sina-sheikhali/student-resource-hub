@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { client } from "@/client/client";
 import { adminApi } from "@/api/admin/api";
 import useLoadingStore from "../common/useLoadingStore";
-import { toast } from "react-toastify";
 const useStatisticStore = create((set, get) => ({
   statistics: [],
   setStatistics: (statistics) => set({ statistics }),

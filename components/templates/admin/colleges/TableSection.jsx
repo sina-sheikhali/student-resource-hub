@@ -34,11 +34,6 @@ export default function TableSection() {
       header: "رتبه",
       cell: (info) => info.getValue(),
     },
-    // {
-    //   accessorKey: "description",
-    //   header: "توضیحات",
-    //   cell: (info) => info.getValue(),
-    // },
     {
       accessorKey: "action",
       header: "عملیات",

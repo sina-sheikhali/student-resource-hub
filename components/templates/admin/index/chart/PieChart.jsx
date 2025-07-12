@@ -14,7 +14,7 @@ export default function PieChartComp() {
   return (
     <div>
       <div className="w-full text-center">
-        <h3 className="text-xl font-bold">آمار دوره ها</h3>
+        <h3 className="text-lg font-semibold md:text-xl">آمار دوره ها</h3>
       </div>
       <PieChart
         width={300}

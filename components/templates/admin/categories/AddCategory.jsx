@@ -39,7 +39,9 @@ export default function AddCategory() {
   };
   return (
     <div className="w-full rounded-lg border bg-white p-4 shadow-md">
-      <h3 className="mb-5 text-xl font-bold">افزودن دسته بندی</h3>
+      <h3 className="mb-5 text-lg font-semibold md:text-xl">
+        افزودن دسته بندی
+      </h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

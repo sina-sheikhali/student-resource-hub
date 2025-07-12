@@ -13,9 +13,12 @@ import useCourseStore from "@/store/admin/useCourseStore";
 import { Loader2Icon } from "lucide-react";
 import useCollegeStore from "@/store/admin/useCollegeStore";
 import useCategoryStore from "@/store/admin/useCategoryStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import InputFile from "@/components/modules/InputFile/InputFile";
+import Image from "next/image";
 
 export default function EidtModal({ rowId, setIsOpen }) {
+  const [selectedPhoto, setSelecetedPhoto] = useState(null);
   const isLoadingStore = useLoadingStore();
   const courseLoading = isLoadingStore.isLoading("fetchCourseLoading");
   const updateCourseLoading = isLoadingStore.isLoading("updateCourseLoading");
@@ -50,18 +53,28 @@ export default function EidtModal({ rowId, setIsOpen }) {
   }, []);
 
   const onSubmit = (data) => {
-    updateCourse(rowId, data, setIsOpen);
+    if (selectedPhoto) {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      formData.append("thumbnail_path", selectedPhoto);
+
+      updateCourse(rowId, formData, setIsOpen);
+    } else {
+      updateCourse(rowId, data, setIsOpen);
+    }
   };
 
   return (
-    <div className="w-[600px]">
+    <div className=" md:w-[600px]">
       {courseLoading ? (
         <div className="flex h-24 items-center justify-center">
           <Loader2Icon className="h-8 w-8 animate-spin text-red-400" />
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <div className="col-span-1">
               <label className="mb-1 block">نام</label>
               <Input
@@ -165,6 +178,29 @@ export default function EidtModal({ rowId, setIsOpen }) {
                   {errors.college_id.message}
                 </p>
               )}
+            </div>
+            <div className="col-span-full">
+              <InputFile
+                allowedTypes={["image/png", "image/jpeg"]}
+                size={5}
+                setSelectedFile={setSelecetedPhoto}
+                selectedFile={selectedPhoto}
+                img={"Video"}
+                title={"انتخاب تصویر"}
+                type={["png", "jpg"]}
+              >
+                {selectedPhoto ? null : (
+                  <div className="flex w-full">
+                    <Image
+                      alt=""
+                      src={`https://mmmovahed.ir/storage/${course.thumbnail_path}`}
+                      className="max-h-[120px] w-full object-cover md:max-h-[220px]"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                )}
+              </InputFile>
             </div>
             <div className="col-span-full mt-5">
               <Button>

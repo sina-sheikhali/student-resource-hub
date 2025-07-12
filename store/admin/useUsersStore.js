@@ -7,8 +7,7 @@ const useUserStore = create((set, get) => ({
   users: [],
   userEnrollments: [],
   setUserEnrollments: (userEnrollments) => set({ userEnrollments }),
-  //   collegeDetails: "",
-  //   setCollegeDetails: (collegeDetails) => set({ collegeDetails }),
+
   setUsers: (users) => set({ users }),
   fetchAllUsers: () => {
     const { setUsers } = get();
@@ -21,19 +20,6 @@ const useUserStore = create((set, get) => ({
       .then((res) => setUsers(res.data.data))
       .finally(() => setLoading("fetchUsersLoading", false));
   },
-  //   fetchCollegeDetails: (collegeId) => {
-  //     const { setCollegeDetails } = get();
-  //     const { setLoading, isLoading } = useLoadingStore.getState();
-
-  //     if (isLoading("collegeDetailsLoading")) return;
-  //     setLoading("collegeDetailsLoading", true);
-
-  //     client(adminApi.collegeDetails(collegeId))
-  //       .then((res) => {
-  //         setCollegeDetails(res.data.data);
-  //       })
-  //       .finally(() => setLoading("collegeDetailsLoading", false));
-  //   },
 
   updateUser: (userId, name, setIsOpen) => {
     const { fetchAllUsers } = get();

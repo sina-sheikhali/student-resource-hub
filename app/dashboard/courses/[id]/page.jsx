@@ -25,12 +25,10 @@ export default function page({ params }) {
         <h1 className="mb-4 text-2xl font-bold">{courseDetails.course.name}</h1>
 
         <div className="flex flex-col gap-6 lg:flex-row">
-          {/* لیست جلسات */}
           <div className="lg:w-1/4">
             <Sidebar setUrlVideo={setUrlVideo} />
           </div>
 
-          {/* محتوای اصلی */}
           <div className="flex flex-col gap-6 lg:w-3/4">
             <VideoPlayer courseDetails={courseDetails} urlVideo={urlVideo} />
             <Resources courseDetails={courseDetails.course} />

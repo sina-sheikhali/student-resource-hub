@@ -34,14 +34,14 @@ export default function EidtModal({ rowId, setIsOpen }) {
   };
 
   return (
-    <div className="w-[600px]">
+    <div className="w-[300px] md:w-[600px]">
       {collegeDetailsLoading ? (
         <div className="flex h-24 items-center justify-center">
           <Loader2Icon className="h-8 w-8 animate-spin text-red-400" />
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <div className="col-span-1">
               <label className="mb-1 block">نام</label>
               <Input

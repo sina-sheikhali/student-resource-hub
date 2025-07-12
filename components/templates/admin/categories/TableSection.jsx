@@ -36,12 +36,6 @@ export default function TableSection() {
       header: "نام",
       cell: (info) => info.getValue(),
     },
-
-    // {
-    //   accessorKey: "description",
-    //   header: "توضیحات",
-    //   cell: (info) => info.getValue(),
-    // },
     {
       accessorKey: "action",
       header: "عملیات",

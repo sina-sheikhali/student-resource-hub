@@ -27,7 +27,9 @@ const useResourceStore = create((set, get) => ({
     reset,
     setProgress,
     cancelUploadRef,
+    courseId,
   ) => {
+    const { fetchResourcesCourse } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
     if (isLoading("createResourcesLoading")) return;
 
@@ -51,6 +53,7 @@ const useResourceStore = create((set, get) => ({
           setSelecetedPhoto("");
           setSelectedFile("");
           reset();
+          fetchResourcesCourse(courseId);
         }
       })
 
@@ -60,28 +63,33 @@ const useResourceStore = create((set, get) => ({
       });
   },
 
-  updateRecources: (data) => {
+  updateRecources: (id, courseId, data) => {
+    const { fetchResourcesCourse } = get();
+
     const { setLoading, isLoading } = useLoadingStore.getState();
     if (isLoading("updateResourcesLoading")) return;
     setLoading("updateResourcesLoading", true);
     client
-      .put(adminApi.updateResources, data)
+      .put(adminApi.updateResources(id), data)
       .then((res) => {
         if (res.status === 200) {
           toast.success(" عملیات موفق");
+          fetchResourcesCourse(courseId);
         }
       })
       .finally(() => setLoading("updateResourcesLoading", false));
   },
-  deleteResources: () => {
+  deleteResources: (id, courseId) => {
+    const { fetchResourcesCourse } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
     if (isLoading("deleteResourcesLoading")) return;
     setLoading("deleteResourcesLoading", true);
     client
-      .delete(adminApi.deleteResources, data)
+      .delete(adminApi.deleteResources(id))
       .then((res) => {
         if (res.status === 200) {
           toast.success(" عملیات موفق");
+          fetchResourcesCourse(courseId);
         }
       })
       .finally(() => setLoading("deleteResourcesLoading", false));

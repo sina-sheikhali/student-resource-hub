@@ -32,11 +32,7 @@ export default function TableSection() {
       header: "ایمیل",
       cell: (info) => info.getValue(),
     },
-    // {
-    //   accessorKey: "description",
-    //   header: "توضیحات",
-    //   cell: (info) => info.getValue(),
-    // },
+ 
     {
       accessorKey: "action",
       header: "عملیات",
@@ -48,7 +44,6 @@ export default function TableSection() {
             id={rowData.id}
             rowId={rowId}
             deleteAction={false}
-            // fetchDetails={fetchCollegeDetails}
             setRowId={setRowId}
             status={rowData.status}
             onDeleteLoading={false}

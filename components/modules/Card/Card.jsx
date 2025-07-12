@@ -1,21 +1,15 @@
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { User, Users } from "lucide-react";
 import { StarIcon } from "@heroicons/react/24/solid";
-import { baseUrl } from "@/client/baseUrl";
 
 export default function Card({
-  _id,
   slug,
   thumbnail_path,
   name,
   teacher,
   ratings_avg_rating,
-  thumbnailUrl,
   users_count,
-  tag,
-  userRating,
 }) {
   return (
     <div className="flex transform flex-col gap-4 rounded-3xl border bg-white p-4 transition duration-500 hover:scale-105">
@@ -34,7 +28,7 @@ export default function Card({
       <div className="flex flex-col gap-2">
         <div>
           <Link href={`/dashboard/courses/${slug}`}>
-            <span className="text-primaryTitle line-clamp-1 text-xl font-semibold">
+            <span className="text-primaryTitle line-clamp-1 text-lg font-semibold md:text-xl">
               {name}
             </span>
           </Link>
@@ -62,7 +56,7 @@ export default function Card({
           )}
           {users_count && (
             <div className="flex items-center gap-x-0.5 text-gray-800">
-              <span className="block self-start ">{users_count}</span>
+              <span className="block self-start">{users_count}</span>
               <Users className="h-5 w-5" />
             </div>
           )}

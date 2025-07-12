@@ -1,3 +1,4 @@
+import InputFile from "@/components/modules/InputFile/InputFile";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,13 +14,14 @@ import useCollegeStore from "@/store/admin/useCollegeStore";
 import useCourseStore from "@/store/admin/useCourseStore";
 import useLoadingStore from "@/store/common/useLoadingStore";
 import { Loader2Icon } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 export default function FormComp() {
+  const [selectedPhoto, setSelecetedPhoto] = useState(null);
   const { fetchCategories, categories } = useCategoryStore();
   const { fetchAllColleges, colleges } = useCollegeStore();
-  const { createCourse } = useCourseStore();
+  const { createCourseTeacher } = useCourseStore();
   const isLoadingStore = useLoadingStore();
   const categoriesLoading = isLoadingStore.isLoading("fetchCategoriesLoading");
   const collegesLoading = isLoadingStore.isLoading("fetchCollegesLoading");
@@ -39,7 +41,16 @@ export default function FormComp() {
   }, []);
 
   const onSubmit = (data) => {
-    createCourse(data, reset);
+    const formData = new FormData();
+
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    if (selectedPhoto) {
+      formData.append("thumbnail_path", selectedPhoto);
+    }
+    createCourseTeacher(formData, reset, setSelecetedPhoto);
   };
 
   return (
@@ -59,7 +70,7 @@ export default function FormComp() {
           )}
         </div>
         <div className="col-span-1">
-          <label className="mb-1 block">تویضحات</label>
+          <label className="mb-1 block">توضیحات</label>
           <Input
             {...register("description", {
               required: "توضیحات الزامی است",
@@ -183,6 +194,18 @@ export default function FormComp() {
           {errors.status && (
             <p className="mt-1 text-sm text-red-500">{errors.status.message}</p>
           )}
+        </div>
+        <div className="col-span-1"></div>
+        <div className="col-span-1">
+          <InputFile
+            allowedTypes={["image/png", "image/jpeg"]}
+            size={5}
+            setSelectedFile={setSelecetedPhoto}
+            selectedFile={selectedPhoto}
+            img={"Video"}
+            title={"انتخاب تصویر"}
+            type={["png", "jpg"]}
+          />
         </div>
       </div>
 

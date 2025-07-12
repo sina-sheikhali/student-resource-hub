@@ -48,7 +48,7 @@ export default function Comments({ courseId }) {
   return (
     <div className="rounded-md bg-gray-50 p-4 shadow">
       <div className="flex items-center justify-between">
-        <h3 className="mb-2 text-xl font-semibold">نظرات کاربران</h3>
+        <h3 className="mb-2 text-lg font-semibold md:text-xl">نظرات کاربران</h3>
         <Button
           className={"bg-green-400 transition-colors hover:bg-green-600/70"}
           onClick={handleOpenCommentBox}
@@ -103,7 +103,7 @@ export default function Comments({ courseId }) {
             </motion.div>
           )}
         </AnimatePresence>
-        {!fetchCommentsLoading ? (
+        {fetchCommentsLoading ? (
           comments.length > 0 ? (
             comments.map((comment) => (
               <div
@@ -138,18 +138,6 @@ export default function Comments({ courseId }) {
                 <div>
                   <p className="whitespace-pre-line">{comment.comment}</p>
                 </div>
-                {/* <div className="flex flex-col gap-5 rounded-md bg-gray-300 p-5">
-            <div className="flex items-center justify-between border-b-2 border-gray-400 pb-5">
-              <div className="flex items-center gap-x-1 text-gray-800">
-                <span>سینا شیخ علی</span>
-                <span className="font-bold">|</span>
-                <span className="font-bold">مدرس</span>
-              </div>
-            </div>
-            <div>
-              <p>کامنت</p>
-            </div>
-          </div> */}
               </div>
             ))
           ) : (
@@ -158,7 +146,9 @@ export default function Comments({ courseId }) {
             </div>
           )
         ) : (
-          ""
+          <div className="flex h-full items-center justify-center text-lg">
+            <p>موردی یافت نشد!</p>
+          </div>
         )}
       </div>
     </div>

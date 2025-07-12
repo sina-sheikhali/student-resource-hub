@@ -1,0 +1,219 @@
+Date : 2025-07-12 18:39:56
+Directory : c:\Users\sina\Desktop\student-resource-hub
+Total : 112 files,  10618 codes, 63 comments, 587 blanks, all 11268 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JavaScript JSX     |         67 |      5,287 |         33 |        405 |      5,725 |
+| JSON               |          4 |      4,099 |          0 |          3 |      4,102 |
+| JavaScript         |         38 |      1,047 |         29 |        151 |      1,227 |
+| CSS                |          1 |        155 |          1 |         13 |        169 |
+| Markdown           |          1 |         23 |          0 |         14 |         37 |
+| JSON with Comments |          1 |          7 |          0 |          1 |          8 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |        112 |     10,618 |         63 |        587 |     11,268 |
+| . (Files)                                                                                                 |          9 |      4,147 |         29 |         32 |      4,208 |
+| api                                                                                                       |         11 |         70 |          0 |         12 |         82 |
+| api\admin                                                                                                 |          7 |         42 |          0 |          8 |         50 |
+| api\admin (Files)                                                                                         |          1 |         14 |          0 |          2 |         16 |
+| api\admin\category                                                                                        |          1 |          4 |          0 |          1 |          5 |
+| api\admin\college                                                                                         |          1 |          4 |          0 |          1 |          5 |
+| api\admin\course                                                                                          |          1 |          6 |          0 |          1 |          7 |
+| api\admin\resource                                                                                        |          1 |          6 |          0 |          1 |          7 |
+| api\admin\statistics                                                                                      |          1 |          3 |          0 |          1 |          4 |
+| api\admin\stundents                                                                                       |          1 |          5 |          0 |          1 |          6 |
+| api\user                                                                                                  |          4 |         28 |          0 |          4 |         32 |
+| api\user (Files)                                                                                          |          1 |          8 |          0 |          1 |          9 |
+| api\user\auth                                                                                             |          1 |          4 |          0 |          1 |          5 |
+| api\user\course                                                                                           |          1 |         11 |          0 |          1 |         12 |
+| api\user\resource                                                                                         |          1 |          5 |          0 |          1 |          6 |
+| app                                                                                                       |         18 |        719 |          3 |         64 |        786 |
+| app (Files)                                                                                               |          4 |        195 |          1 |         19 |        215 |
+| app\admin                                                                                                 |          6 |        128 |          0 |         14 |        142 |
+| app\admin (Files)                                                                                         |          1 |         70 |          0 |          4 |         74 |
+| app\admin\categories                                                                                      |          1 |         12 |          0 |          2 |         14 |
+| app\admin\colleges                                                                                        |          1 |         12 |          0 |          2 |         14 |
+| app\admin\courses                                                                                         |          1 |         12 |          0 |          2 |         14 |
+| app\admin\students                                                                                        |          1 |         10 |          0 |          2 |         12 |
+| app\admin\teachers                                                                                        |          1 |         12 |          0 |          2 |         14 |
+| app\dashboard                                                                                             |          3 |         63 |          0 |         11 |         74 |
+| app\dashboard (Files)                                                                                     |          1 |         15 |          0 |          2 |         17 |
+| app\dashboard\courses                                                                                     |          2 |         48 |          0 |          9 |         57 |
+| app\dashboard\courses (Files)                                                                             |          1 |         13 |          0 |          2 |         15 |
+| app\dashboard\courses\[id]                                                                                |          1 |         35 |          0 |          7 |         42 |
+| app\sign-in                                                                                               |          1 |        104 |          1 |          6 |        111 |
+| app\sign-up                                                                                               |          1 |        139 |          1 |          6 |        146 |
+| app\teacher                                                                                               |          3 |         90 |          0 |          8 |         98 |
+| app\teacher (Files)                                                                                       |          1 |         70 |          0 |          4 |         74 |
+| app\teacher\courses                                                                                       |          1 |         10 |          0 |          2 |         12 |
+| app\teacher\createCourse                                                                                  |          1 |         10 |          0 |          2 |         12 |
+| client                                                                                                    |          2 |         41 |          0 |          9 |         50 |
+| components                                                                                                |         54 |      4,795 |         31 |        368 |      5,194 |
+| components\modules                                                                                        |         13 |        895 |          3 |         66 |        964 |
+| components\modules\ActionTable                                                                            |          1 |         85 |          0 |          3 |         88 |
+| components\modules\Card                                                                                   |          1 |         65 |          0 |          3 |         68 |
+| components\modules\DataTable                                                                              |          1 |        121 |          3 |          5 |        129 |
+| components\modules\FileList                                                                               |          1 |        130 |          0 |         11 |        141 |
+| components\modules\InfoCard                                                                               |          1 |         23 |          0 |          1 |         24 |
+| components\modules\InputFile                                                                              |          1 |         54 |          0 |          3 |         57 |
+| components\modules\LayoutWrapper                                                                          |          1 |         32 |          0 |          8 |         40 |
+| components\modules\MyModal                                                                                |          1 |         61 |          0 |          3 |         64 |
+| components\modules\PasswordInput                                                                          |          1 |         44 |          0 |          5 |         49 |
+| components\modules\ProgressUplaod                                                                         |          1 |         49 |          0 |          2 |         51 |
+| components\modules\SectionTitle                                                                           |          1 |          9 |          0 |          2 |         11 |
+| components\modules\Sidebar                                                                                |          1 |        192 |          0 |         15 |        207 |
+| components\modules\Skeleton                                                                               |          1 |         30 |          0 |          5 |         35 |
+| components\templates                                                                                      |         32 |      2,928 |         16 |        196 |      3,140 |
+| components\templates\admin                                                                                |         16 |      1,403 |          8 |         96 |      1,507 |
+| components\templates\admin\categories                                                                     |          3 |        244 |          2 |         18 |        264 |
+| components\templates\admin\colleges                                                                       |          3 |        202 |          2 |         18 |        222 |
+| components\templates\admin\courses                                                                        |          3 |        506 |          1 |         20 |        527 |
+| components\templates\admin\index                                                                          |          2 |        101 |          0 |          7 |        108 |
+| components\templates\admin\index\chart                                                                    |          2 |        101 |          0 |          7 |        108 |
+| components\templates\admin\students                                                                       |          2 |        148 |          1 |         16 |        165 |
+| components\templates\admin\teachers                                                                       |          3 |        202 |          2 |         17 |        221 |
+| components\templates\teacher                                                                              |          6 |        726 |          1 |         35 |        762 |
+| components\templates\teacher\courses                                                                      |          3 |        410 |          1 |         19 |        430 |
+| components\templates\teacher\createCourse                                                                 |          1 |        215 |          0 |          9 |        224 |
+| components\templates\teacher\index                                                                        |          2 |        101 |          0 |          7 |        108 |
+| components\templates\teacher\index\chart                                                                  |          2 |        101 |          0 |          7 |        108 |
+| components\templates\user                                                                                 |         10 |        799 |          7 |         65 |        871 |
+| components\templates\user\courses                                                                         |          8 |        677 |          7 |         52 |        736 |
+| components\templates\user\courses\Slider                                                                  |          3 |        231 |          6 |         20 |        257 |
+| components\templates\user\courses\details                                                                 |          5 |        446 |          1 |         32 |        479 |
+| components\templates\user\index                                                                           |          2 |        122 |          0 |         13 |        135 |
+| components\ui                                                                                             |          9 |        972 |         12 |        106 |      1,090 |
+| hooks                                                                                                     |          1 |         15 |          0 |          5 |         20 |
+| lib                                                                                                       |          1 |          5 |          0 |          2 |          7 |
+| store                                                                                                     |         13 |        783 |          0 |         87 |        870 |
+| store\admin                                                                                               |          7 |        504 |          0 |         53 |        557 |
+| store\common                                                                                              |          3 |         72 |          0 |         14 |         86 |
+| store\user                                                                                                |          3 |        207 |          0 |         20 |        227 |
+| utils                                                                                                     |          3 |         43 |          0 |          8 |         51 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                  | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\sina\Desktop\student-resource-hub\.prettierrc.json                                               | JSON               |          3 |          0 |          1 |          4 |
+| c:\Users\sina\Desktop\student-resource-hub\README.md                                                      | Markdown           |         23 |          0 |         14 |         37 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\api.js                                               | JavaScript         |         14 |          0 |          2 |         16 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\category\index.js                                    | JavaScript         |          4 |          0 |          1 |          5 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\college\index.js                                     | JavaScript         |          4 |          0 |          1 |          5 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\course\index.js                                      | JavaScript         |          6 |          0 |          1 |          7 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\resource\index.js                                    | JavaScript         |          6 |          0 |          1 |          7 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\statistics\index.js                                  | JavaScript         |          3 |          0 |          1 |          4 |
+| c:\Users\sina\Desktop\student-resource-hub\api\admin\stundents\index.js                                   | JavaScript         |          5 |          0 |          1 |          6 |
+| c:\Users\sina\Desktop\student-resource-hub\api\user\api.js                                                | JavaScript         |          8 |          0 |          1 |          9 |
+| c:\Users\sina\Desktop\student-resource-hub\api\user\auth\index.js                                         | JavaScript         |          4 |          0 |          1 |          5 |
+| c:\Users\sina\Desktop\student-resource-hub\api\user\course\index.js                                       | JavaScript         |         11 |          0 |          1 |         12 |
+| c:\Users\sina\Desktop\student-resource-hub\api\user\resource\index.js                                     | JavaScript         |          5 |          0 |          1 |          6 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\categories\page.jsx                                  | JavaScript JSX     |         12 |          0 |          2 |         14 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\colleges\page.jsx                                    | JavaScript JSX     |         12 |          0 |          2 |         14 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\courses\page.jsx                                     | JavaScript JSX     |         12 |          0 |          2 |         14 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\page.jsx                                             | JavaScript JSX     |         70 |          0 |          4 |         74 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\students\page.jsx                                    | JavaScript JSX     |         10 |          0 |          2 |         12 |
+| c:\Users\sina\Desktop\student-resource-hub\app\admin\teachers\page.jsx                                    | JavaScript JSX     |         12 |          0 |          2 |         14 |
+| c:\Users\sina\Desktop\student-resource-hub\app\dashboard\courses\[id]\page.jsx                            | JavaScript JSX     |         35 |          0 |          7 |         42 |
+| c:\Users\sina\Desktop\student-resource-hub\app\dashboard\courses\page.jsx                                 | JavaScript JSX     |         13 |          0 |          2 |         15 |
+| c:\Users\sina\Desktop\student-resource-hub\app\dashboard\page.jsx                                         | JavaScript JSX     |         15 |          0 |          2 |         17 |
+| c:\Users\sina\Desktop\student-resource-hub\app\globals.css                                                | CSS                |        155 |          1 |         13 |        169 |
+| c:\Users\sina\Desktop\student-resource-hub\app\layout.js                                                  | JavaScript         |         20 |          0 |          4 |         24 |
+| c:\Users\sina\Desktop\student-resource-hub\app\not-found.js                                               | JavaScript         |         17 |          0 |          1 |         18 |
+| c:\Users\sina\Desktop\student-resource-hub\app\page.js                                                    | JavaScript         |          3 |          0 |          1 |          4 |
+| c:\Users\sina\Desktop\student-resource-hub\app\sign-in\page.jsx                                           | JavaScript JSX     |        104 |          1 |          6 |        111 |
+| c:\Users\sina\Desktop\student-resource-hub\app\sign-up\page.jsx                                           | JavaScript JSX     |        139 |          1 |          6 |        146 |
+| c:\Users\sina\Desktop\student-resource-hub\app\teacher\courses\page.jsx                                   | JavaScript JSX     |         10 |          0 |          2 |         12 |
+| c:\Users\sina\Desktop\student-resource-hub\app\teacher\createCourse\page.jsx                              | JavaScript JSX     |         10 |          0 |          2 |         12 |
+| c:\Users\sina\Desktop\student-resource-hub\app\teacher\page.jsx                                           | JavaScript JSX     |         70 |          0 |          4 |         74 |
+| c:\Users\sina\Desktop\student-resource-hub\client\baseUrl.js                                              | JavaScript         |          1 |          0 |          1 |          2 |
+| c:\Users\sina\Desktop\student-resource-hub\client\client.js                                               | JavaScript         |         40 |          0 |          8 |         48 |
+| c:\Users\sina\Desktop\student-resource-hub\components.json                                                | JSON               |         21 |          0 |          0 |         21 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\ActionTable\AtctionTable.jsx                | JavaScript JSX     |         85 |          0 |          3 |         88 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\Card\Card.jsx                               | JavaScript JSX     |         65 |          0 |          3 |         68 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\DataTable\DataTable.jsx                     | JavaScript JSX     |        121 |          3 |          5 |        129 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\FileList\ListFile.jsx                       | JavaScript JSX     |        130 |          0 |         11 |        141 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\InfoCard\InfoCard.jsx                       | JavaScript JSX     |         23 |          0 |          1 |         24 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\InputFile\InputFile.jsx                     | JavaScript JSX     |         54 |          0 |          3 |         57 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\LayoutWrapper\layoutWrapper.js              | JavaScript         |         32 |          0 |          8 |         40 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\MyModal\MyModal.jsx                         | JavaScript JSX     |         61 |          0 |          3 |         64 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\PasswordInput\PasswordInput.jsx             | JavaScript JSX     |         44 |          0 |          5 |         49 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\ProgressUplaod\ProgressUpload.jsx           | JavaScript JSX     |         49 |          0 |          2 |         51 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\SectionTitle\SectionTitle.jsx               | JavaScript JSX     |          9 |          0 |          2 |         11 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\Sidebar\Sidebar.jsx                         | JavaScript JSX     |        192 |          0 |         15 |        207 |
+| c:\Users\sina\Desktop\student-resource-hub\components\modules\Skeleton\Skeleton.jsx                       | JavaScript JSX     |         30 |          0 |          5 |         35 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\categories\AddCategory.jsx          | JavaScript JSX     |        100 |          1 |          6 |        107 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\categories\EditModal.jsx            | JavaScript JSX     |         67 |          1 |          6 |         74 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\categories\TableSection.jsx         | JavaScript JSX     |         77 |          0 |          6 |         83 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\colleges\AddCollege.jsx             | JavaScript JSX     |         71 |          1 |          6 |         78 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\colleges\EditModal.jsx              | JavaScript JSX     |         64 |          1 |          6 |         71 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\colleges\TableSection.jsx           | JavaScript JSX     |         67 |          0 |          6 |         73 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\courses\CreateCourse.jsx            | JavaScript JSX     |        215 |          0 |          9 |        224 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\courses\EidtModal.jsx               | JavaScript JSX     |        209 |          1 |          7 |        217 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\courses\TableSection.jsx            | JavaScript JSX     |         82 |          0 |          4 |         86 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\index\chart\PieChart.jsx            | JavaScript JSX     |         62 |          0 |          4 |         66 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\index\chart\composedChart.jsx       | JavaScript JSX     |         39 |          0 |          3 |         42 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\students\EditModal.jsx              | JavaScript JSX     |         84 |          1 |         10 |         95 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\students\TableSection.jsx           | JavaScript JSX     |         64 |          0 |          6 |         70 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\teachers\AddTeacher.jsx             | JavaScript JSX     |         71 |          1 |          6 |         78 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\teachers\EditModal.jsx              | JavaScript JSX     |         64 |          1 |          6 |         71 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\admin\teachers\TableSection.jsx           | JavaScript JSX     |         67 |          0 |          5 |         72 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\courses\EidtModal.jsx             | JavaScript JSX     |        212 |          1 |          7 |        220 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\courses\ResourceModal.jsx         | JavaScript JSX     |        109 |          0 |          8 |        117 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\courses\TableSection.jsx          | JavaScript JSX     |         89 |          0 |          4 |         93 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\createCourse\form.jsx             | JavaScript JSX     |        215 |          0 |          9 |        224 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\index\chart\PieChart.jsx          | JavaScript JSX     |         62 |          0 |          4 |         66 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\teacher\index\chart\composedChart.jsx     | JavaScript JSX     |         39 |          0 |          3 |         42 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\Slider\MostWanted.jsx        | JavaScript JSX     |         76 |          2 |          7 |         85 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\Slider\NewlyAddedCourses.jsx | JavaScript JSX     |         77 |          2 |          7 |         86 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\Slider\RatedCourses.jsx      | JavaScript JSX     |         78 |          2 |          6 |         86 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\details\Comment.jsx          | JavaScript JSX     |        146 |          1 |         10 |        157 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\details\Resources.jsx        | JavaScript JSX     |        100 |          0 |          3 |        103 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\details\Sidebar.jsx          | JavaScript JSX     |         64 |          0 |          6 |         70 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\details\StarRating.jsx       | JavaScript JSX     |         72 |          0 |          8 |         80 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\courses\details\VideoPlayer.jsx      | JavaScript JSX     |         64 |          0 |          5 |         69 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\index\MyCourses.jsx                  | JavaScript JSX     |         37 |          0 |          5 |         42 |
+| c:\Users\sina\Desktop\student-resource-hub\components\templates\user\index\SearchCourse.jsx               | JavaScript JSX     |         85 |          0 |          8 |         93 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\button.jsx                                       | JavaScript JSX     |         45 |          0 |          6 |         51 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\input.jsx                                        | JavaScript JSX     |         18 |          0 |          4 |         22 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\label.jsx                                        | JavaScript JSX     |         19 |          0 |          5 |         24 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\select.jsx                                       | JavaScript JSX     |         84 |          0 |          8 |         92 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\separator.jsx                                    | JavaScript JSX     |         23 |          0 |          5 |         28 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\sheet.jsx                                        | JavaScript JSX     |        104 |          0 |         14 |        118 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\sidebar.jsx                                      | JavaScript JSX     |        618 |         12 |         53 |        683 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\skeleton.jsx                                     | JavaScript JSX     |         13 |          0 |          3 |         16 |
+| c:\Users\sina\Desktop\student-resource-hub\components\ui\tooltip.jsx                                      | JavaScript JSX     |         48 |          0 |          8 |         56 |
+| c:\Users\sina\Desktop\student-resource-hub\hooks\use-mobile.js                                            | JavaScript         |         15 |          0 |          5 |         20 |
+| c:\Users\sina\Desktop\student-resource-hub\jsconfig.json                                                  | JSON with Comments |          7 |          0 |          1 |          8 |
+| c:\Users\sina\Desktop\student-resource-hub\lib\utils.js                                                   | JavaScript         |          5 |          0 |          2 |          7 |
+| c:\Users\sina\Desktop\student-resource-hub\middleware.js                                                  | JavaScript         |          7 |         28 |         10 |         45 |
+| c:\Users\sina\Desktop\student-resource-hub\next.config.mjs                                                | JavaScript         |          7 |          1 |          2 |         10 |
+| c:\Users\sina\Desktop\student-resource-hub\package-lock.json                                              | JSON               |      4,018 |          0 |          1 |      4,019 |
+| c:\Users\sina\Desktop\student-resource-hub\package.json                                                   | JSON               |         57 |          0 |          1 |         58 |
+| c:\Users\sina\Desktop\student-resource-hub\postcss.config.mjs                                             | JavaScript         |          4 |          0 |          2 |          6 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useCategoryStore.js                                | JavaScript         |         81 |          0 |          2 |         83 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useCollegeStore.js                                 | JavaScript         |         79 |          0 |         11 |         90 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useCourseStore.js                                  | JavaScript         |        113 |          0 |          4 |        117 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useRecourceStore.js                                | JavaScript         |         88 |          0 |          9 |         97 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useStatisticStore.js                               | JavaScript         |         18 |          0 |          5 |         23 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useTeacherStore.js                                 | JavaScript         |         79 |          0 |         11 |         90 |
+| c:\Users\sina\Desktop\student-resource-hub\store\admin\useUsersStore.js                                   | JavaScript         |         46 |          0 |         11 |         57 |
+| c:\Users\sina\Desktop\student-resource-hub\store\common\useAuthStore.js                                   | JavaScript         |         49 |          0 |          8 |         57 |
+| c:\Users\sina\Desktop\student-resource-hub\store\common\useErrorStore.js                                  | JavaScript         |         10 |          0 |          3 |         13 |
+| c:\Users\sina\Desktop\student-resource-hub\store\common\useLoadingStore.js                                | JavaScript         |         13 |          0 |          3 |         16 |
+| c:\Users\sina\Desktop\student-resource-hub\store\user\useCourseDetailsStore.js                            | JavaScript         |         83 |          0 |          4 |         87 |
+| c:\Users\sina\Desktop\student-resource-hub\store\user\useCourseStore.js                                   | JavaScript         |         80 |          0 |         13 |         93 |
+| c:\Users\sina\Desktop\student-resource-hub\store\user\useResouceStore.js                                  | JavaScript         |         44 |          0 |          3 |         47 |
+| c:\Users\sina\Desktop\student-resource-hub\utils\inputFileUtils.js                                        | JavaScript         |         18 |          0 |          2 |         20 |
+| c:\Users\sina\Desktop\student-resource-hub\utils\modalUtils.js                                            | JavaScript         |          3 |          0 |          1 |          4 |
+| c:\Users\sina\Desktop\student-resource-hub\utils\specifyTypeFile.js                                       | JavaScript         |         22 |          0 |          5 |         27 |
+| Total                                                                                                     |                    |     10,618 |         63 |        587 |     11,268 |
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

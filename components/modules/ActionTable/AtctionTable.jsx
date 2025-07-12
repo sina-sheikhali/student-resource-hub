@@ -29,7 +29,6 @@ export default function ActionTable({
   };
   const handelResources = () => {
     setRowId(id);
-    // fetchDetails(id);
     setIsOpenResourceModal(true);
   };
 

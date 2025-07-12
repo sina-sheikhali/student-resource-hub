@@ -1,6 +1,4 @@
 "use client";
-
-import { baseUrl } from "@/client/baseUrl";
 import {
   Tooltip,
   TooltipContent,
@@ -76,7 +74,9 @@ export default function Resources({ courseDetails }) {
         </div>
       </div>
       <div className="rounded bg-white p-4 shadow">
-        <h3 className="mb-5 text-xl font-semibold">فایل‌های ضمیمه</h3>
+        <h3 className="mb-5 text-lg font-semibold md:text-xl">
+          فایل‌های ضمیمه
+        </h3>
         <ul className="space-y-1">
           {resourcesCourse.length > 0 &&
             resourcesCourse.map(
@@ -86,7 +86,7 @@ export default function Resources({ courseDetails }) {
                     <a
                       dir="ltr"
                       href={`https://mmmovahed.ir/storage/${item.file_path}`}
-                      className="text-base text-blue-500 hover:underline"
+                      className="text-base font-semibold text-blue-500 hover:underline"
                       download
                     >
                       {item.title + "."}

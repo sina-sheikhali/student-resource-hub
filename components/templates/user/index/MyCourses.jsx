@@ -27,12 +27,12 @@ export default function MyCourses() {
         ) : myCourses?.length > 0 ? (
           myCourses.map((item) => (
             <div className="col-span-1" key={`${item.id}-myCourses`}>
-              <Card {...item} slug={item.id}  />
+              <Card {...item} slug={item.id} />
             </div>
           ))
         ) : (
           <div className="col-span-full flex h-full min-h-[346px] w-full items-center justify-center">
-            <p className="text-center text-gray-500">دوره‌ای پیدا نشد.</p>
+            <p className="text-center text-gray-500">دوره‌ای یافت نشد.</p>
           </div>
         )}
       </div>
