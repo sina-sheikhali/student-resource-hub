@@ -38,7 +38,6 @@ export default function EidtModal({ rowId, setIsOpen, data }) {
 
   return (
     <div className="w-[300px] md:w-[600px]">
-      {" "}
       <div className="mb-5 border-b pb-5">
         <div>
           <h3 className="mb-5 text-lg font-semibold md:text-xl">

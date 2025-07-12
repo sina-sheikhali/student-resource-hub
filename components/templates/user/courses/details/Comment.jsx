@@ -103,7 +103,7 @@ export default function Comments({ courseId }) {
             </motion.div>
           )}
         </AnimatePresence>
-        {fetchCommentsLoading ? (
+        {!fetchCommentsLoading ? (
           comments.length > 0 ? (
             comments.map((comment) => (
               <div

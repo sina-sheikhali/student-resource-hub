@@ -57,7 +57,7 @@ export default function ListFile({ title, condition, rowId }) {
                 {items.map((item, index) => (
                   <li
                     key={item.id}
-                    className="flex items-center justify-between gap-4 border-b border-gray-200 py-2"
+                    className="flex items-center justify-between gap-4 border-b border-gray-200 py-2 last:border-b-0"
                   >
                     <div className="flex flex-1 items-center gap-2 overflow-hidden">
                       <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-gray-900 text-gray-100">
