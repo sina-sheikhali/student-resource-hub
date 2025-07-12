@@ -43,7 +43,7 @@ export default function SearchCourses() {
       <div className="mx-auto w-2/3 md:w-1/3">
         <Input
           type="text"
-          placeholder="جستجوی دوره..."
+          placeholder="جستجوی دوره...(بر اساس : نام دوره | نام استاد  )"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="placeholder:font-yekan mb-4"
