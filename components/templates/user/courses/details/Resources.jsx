@@ -85,6 +85,7 @@ export default function Resources({ courseDetails }) {
                   <li key={item.id}>
                     <a
                       dir="ltr"
+                      target="_blank"
                       href={`https://mmmovahed.ir/storage/${item.file_path}`}
                       className="text-base font-semibold text-blue-500 hover:underline"
                       download

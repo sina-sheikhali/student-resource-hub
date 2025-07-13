@@ -70,7 +70,7 @@ const useResourceStore = create((set, get) => ({
     if (isLoading("updateResourcesLoading")) return;
     setLoading("updateResourcesLoading", true);
     client
-      .put(adminApi.updateResources(id), data)
+      .post(adminApi.updateResources(id), data)
       .then((res) => {
         if (res.status === 200) {
           toast.success(" عملیات موفق");

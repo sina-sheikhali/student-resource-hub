@@ -26,10 +26,7 @@ const useCourseDetailsStore = create((set, get) => ({
     if (isLoading("updateRateLoaing")) return;
     setLoading("updateRateLoaing", true);
     client
-      .put(
-        userApi.insertRate +
-          `/${data.course_id}?course_id=${data.course_id}&rating=${data.rating}`,
-      )
+      .put(userApi.insertRate + `/${data.course_id}?rating=${data.rating}`)
       .then((res) => {
         toast.success("امتیاز شما ثبت شد");
       })

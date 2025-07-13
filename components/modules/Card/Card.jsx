@@ -19,7 +19,7 @@ export default function Card({
             src={`https://mmmovahed.ir/storage/${thumbnail_path}`}
             width={200}
             height={200}
-            className="h-[200px] w-full object-cover"
+            className="size-full h-[200px] w-full object-cover"
             alt=""
           />
         </Link>

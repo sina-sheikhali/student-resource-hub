@@ -70,7 +70,7 @@ export default function FormComp() {
           )}
         </div>
         <div className="col-span-1">
-          <label className="mb-1 block">تویضحات</label>
+          <label className="mb-1 block">توضیحات</label>
           <Input
             {...register("description", {
               required: "توضیحات الزامی است",
