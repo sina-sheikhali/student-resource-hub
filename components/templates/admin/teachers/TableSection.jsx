@@ -5,14 +5,14 @@ import React, { useEffect, useState } from "react";
 import EidtModal from "./EditModal";
 import { closeModal } from "@/utils/modalUtils";
 import ModalComponent from "@/components/modules/MyModal/MyModal";
-import useCollegeStore from "@/store/admin/useCollegeStore";
+import useTeacherStore from "@/store/admin/useTeacherStore";
 
 export default function TableSection() {
   const isLoadingStore = useLoadingStore();
   const isDeleting = isLoadingStore.isLoading("deleteCollegeLoading");
   const isFetching = isLoadingStore.isLoading("fetchCollegesLoading");
-  const { fetchCollegeDetails, deleteCollege, fetchAllColleges, colleges } =
-    useCollegeStore();
+  const { fetchTeachers, fetchTeacherDetails, deleteTeachers, teachers } =
+    useTeacherStore();
 
   const [rowId, setRowId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +30,13 @@ export default function TableSection() {
       cell: (info) => info.getValue(),
     },
     {
-      accessorKey: "rank",
-      header: "رتبه",
+      accessorKey: "phone",
+      header: "شماره همراه",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "email",
+      header: "ایمیل",
       cell: (info) => info.getValue(),
     },
     {
@@ -44,12 +49,12 @@ export default function TableSection() {
             setIsOpen={setIsOpen}
             id={rowData.id}
             rowId={rowId}
-            fetchDetails={fetchCollegeDetails}
+            fetchDetails={fetchTeacherDetails}
             setRowId={setRowId}
             status={rowData.status}
             onDeleteLoading={isDeleting}
             onDelete={() => {
-              deleteCollege(rowData.id);
+              deleteTeachers(rowData.id);
             }}
           />
         );
@@ -57,7 +62,7 @@ export default function TableSection() {
     },
   ];
   useEffect(() => {
-    fetchAllColleges();
+    fetchTeachers();
   }, []);
 
   return (
@@ -65,7 +70,7 @@ export default function TableSection() {
       <ModalComponent isOpen={isOpen} closeModal={() => closeModal(setIsOpen)}>
         {isOpen && <EidtModal rowId={rowId} setIsOpen={setIsOpen} />}
       </ModalComponent>
-      <DataTable columns={columns} data={colleges} loading={isFetching} />
+      <DataTable columns={columns} data={teachers} loading={isFetching} />
     </div>
   );
 }

@@ -4,85 +4,86 @@ import { adminApi } from "@/api/admin/api";
 import useLoadingStore from "../common/useLoadingStore";
 import { toast } from "react-toastify";
 const useTeacherStore = create((set, get) => ({
-  colleges: [],
-  collegeDetails: "",
-  setColleges: (colleges) => set({ colleges }),
-  setCollegeDetails: (collegeDetails) => set({ collegeDetails }),
-  fetchAllColleges: () => {
-    const { setColleges } = get();
+  teachers: [],
+  teacherDetails: "",
+  setTeachers: (teachers) => set({ teachers }),
+  setTeacherDetails: (teacherDetails) => set({ teacherDetails }),
+  fetchTeachers: () => {
+    const { setTeachers } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
 
-    if (isLoading("fetchCollegesLoading")) return;
-    setLoading("fetchCollegesLoading", true);
+    if (isLoading("fetchTeachersLoading")) return;
+    setLoading("fetchTeachersLoading", true);
 
-    client(adminApi.colleges)
-      .then((res) => setColleges(res.data.data))
-      .finally(() => setLoading("fetchCollegesLoading", false));
+    client(adminApi.fetchTeachers)
+      .then((res) => setTeachers(res.data.data))
+      .finally(() => setLoading("fetchTeachersLoading", false));
   },
-  fetchCollegeDetails: (collegeId) => {
-    const { setCollegeDetails } = get();
+  fetchTeacherDetails: (teacherId) => {
+    const { setTeacherDetails } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
 
-    if (isLoading("collegeDetailsLoading")) return;
-    setLoading("collegeDetailsLoading", true);
+    if (isLoading("teacherDetailsLoading")) return;
+    setLoading("teacherDetailsLoading", true);
 
-    client(adminApi.collegeDetails(collegeId))
+    client(adminApi.teacherDetails(teacherId))
       .then((res) => {
-        setCollegeDetails(res.data.data);
-      })
-      .finally(() => setLoading("collegeDetailsLoading", false));
-  },
+        console.log(res.data.data);
 
-  createCollege: (data, reset) => {
-    const { fetchAllColleges } = get();
+        setTeacherDetails(res.data.data);
+      })
+      .finally(() => setLoading("teacherDetailsLoading", false));
+  },
+  createTeacher: (data, reset) => {
+    const { fetchTeachers } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
 
-    if (isLoading("createCollegeLoading")) return;
-    setLoading("createCollegeLoading", true);
+    if (isLoading("createTeacherLoading")) return;
+    setLoading("createTeacherLoading", true);
     client
-      .post(adminApi.colleges, data)
+      .post(adminApi.createTeacher, data)
       .then((res) => {
         if (res.status === 200) {
-          toast.success("دانشکده جدید ثبت شد");
-          fetchAllColleges();
+          toast.success("استاد جدید اضافه شد");
+          fetchTeachers();
           reset();
         }
       })
-      .finally(() => setLoading("createCollegeLoading", false));
+      .finally(() => setLoading("createTeacherLoading", false));
   },
-  updateCollege: (collegeId, data, setIsOpen) => {
-    const { fetchAllColleges } = get();
+  updateTeachers: (teacherId, data, setIsOpen) => {
+    const { fetchTeachers } = get();
 
     const { setLoading, isLoading } = useLoadingStore.getState();
 
-    if (isLoading("updateCollegeLoading")) return;
-    setLoading("updateCollegeLoading", true);
+    if (isLoading("updateTeacherLoading")) return;
+    setLoading("updateTeacherLoading", true);
     client
-      .put(adminApi.collegeDetails(collegeId), data)
+      .put(adminApi.updateTeacher(teacherId), data)
       .then((res) => {
         if (res.status === 200) {
           toast.success("به روز رسانی انجام شد");
           setIsOpen(false);
-          fetchAllColleges();
+          fetchTeachers();
         }
       })
-      .finally(() => setLoading("updateCollegeLoading", false));
+      .finally(() => setLoading("updateTeacherLoading", false));
   },
-  deleteCollege: (collegeId) => {
-    const { fetchAllColleges } = get();
+  deleteTeachers: (teacherId) => {
+    const { fetchTeachers } = get();
     const { setLoading, isLoading } = useLoadingStore.getState();
 
-    if (isLoading("deleteCollegeLoading")) return;
-    setLoading("deleteCollegeLoading", true);
+    if (isLoading("deleteTeacherLoading")) return;
+    setLoading("deleteTeacherLoading", true);
     client
-      .delete(adminApi.collegeDetails(collegeId))
+      .delete(adminApi.deleteTeacher(teacherId))
       .then((res) => {
         if (res.status === 200) {
-          toast.success("دانشکده مورد نظر حذف شد");
-          fetchAllColleges();
+          toast.success("استاد مورد نظر حذف شد");
+          fetchTeachers();
         }
       })
-      .finally(() => setLoading("deleteCollegeLoading", false));
+      .finally(() => setLoading("deleteTeacherLoading", false));
   },
 }));
 

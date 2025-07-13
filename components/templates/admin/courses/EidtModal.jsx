@@ -54,7 +54,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append("thumbnail_path", data.image[0]);
+    formData.append("thumbnail_path", selectedPhoto);
 
     formData.append("name", data.name);
     formData.append("description", data.description);

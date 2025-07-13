@@ -6,25 +6,30 @@ import useCourseDetailsStore from "@/store/user/useCourseDetailsStore";
 export default function StarRating({ courseId, user_rating }) {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);
-
+  const [hasRated, setHasRated] = useState(false);
   const { insertRate, updateRate } = useCourseDetailsStore();
 
   useEffect(() => {
     setRating(user_rating);
-  }, []);
+    setHover(null);
+    setHasRated(false);
+  }, [courseId, user_rating]);
 
   const handleClick = () => {
-    if (hover) {
-      setRating(hover);
+    if (hover && !hasRated) {
+      const roundedRating = Math.round(hover * 2) / 2;
+      setRating(roundedRating);
+      setHasRated(true);
+
       if (user_rating) {
         updateRate({
           course_id: courseId,
-          rating: parseInt(hover),
+          rating: roundedRating,
         });
       } else {
         insertRate({
           course_id: courseId,
-          rating: parseInt(hover),
+          rating: roundedRating,
         });
       }
     }
@@ -40,13 +45,13 @@ export default function StarRating({ courseId, user_rating }) {
   return (
     <div className="direction-ltr flex gap-1">
       {[0, 1, 2, 3, 4].map((index) => {
-        const reversedIndex = 4 - index;     
+        const reversedIndex = 4 - index;
         const fill = getFill(reversedIndex);
 
         return (
           <div
             key={reversedIndex}
-            className={`relative h-6 w-6 cursor-pointer`}
+            className={`relative h-6 w-6 cursor-pointer ${hasRated ? "pointer-events-none opacity-50" : ""}`}
             onMouseMove={(e) => {
               const { left, width } = e.currentTarget.getBoundingClientRect();
               const isHalf = e.clientX - left < width / 2;

@@ -4,6 +4,7 @@ import { courseApi } from "./course";
 import { resourceApi } from "./resource";
 import { statisticApi } from "./statistics";
 import { studentsApi } from "./stundents";
+import { teachersApi } from "./teachers";
 
 export const adminApi = {
   ...collegeApi,
@@ -12,4 +13,5 @@ export const adminApi = {
   ...resourceApi,
   ...studentsApi,
   ...statisticApi,
+  ...teachersApi,
 };
