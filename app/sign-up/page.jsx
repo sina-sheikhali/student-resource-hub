@@ -94,6 +94,7 @@ export default function LoginPage() {
                 <div dir="ltr">
                   <Input
                     type={"email"}
+                    className={"font-roboto-regular"}
                     placeholder="email"
                     {...register("email")}
                   />

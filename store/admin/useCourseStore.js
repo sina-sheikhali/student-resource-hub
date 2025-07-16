@@ -68,7 +68,7 @@ const useCourseStore = create((set, get) => ({
             description: "",
             category_id: "",
             college_id: "",
-            status: "",
+            status: "active",
           });
           setSelecetedPhoto("");
         }
@@ -82,7 +82,7 @@ const useCourseStore = create((set, get) => ({
     if (isLoading("createCourseLoading")) return;
     setLoading("createCourseLoading", true);
     client
-      .post(adminApi.createCourseTeacher, data)
+      .post(adminApi.createCourse, data)
       .then((res) => {
         if (res.status === 200) {
           toast.success("دوره اضافه شد");
@@ -91,7 +91,8 @@ const useCourseStore = create((set, get) => ({
             description: "",
             category_id: "",
             college_id: "",
-            status: "",
+            teacher: "",
+            status: "active",
           });
           setSelecetedPhoto("");
           fetchCourses();

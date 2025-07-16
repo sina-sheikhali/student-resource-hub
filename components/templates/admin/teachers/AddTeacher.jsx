@@ -77,7 +77,7 @@ export default function AddCollege() {
             <label className="mb-1 block">ایمیل</label>
             <Input
               {...register("email", { required: "رتبه الزامی است" })}
-              className="w-full border p-2"
+              className="font-roboto-regular w-full border p-2"
             />
             {errors.email && (
               <p className="text-sm text-red-500">{errors.email.message}</p>

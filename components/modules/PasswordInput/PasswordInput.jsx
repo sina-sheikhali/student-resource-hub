@@ -30,7 +30,6 @@ export default function PasswordInput({ register, inputRef, error }) {
             inputRef.current = e;
           }}
           type={show ? "text" : "password"}
-          placeholder="password "
         />
         <Button
           type="button"

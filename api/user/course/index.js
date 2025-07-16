@@ -1,4 +1,5 @@
 export const courseApi = {
+  fetchAllCourses: "/courses",
   fetchCourseByFilter: "/filters",
   fetchCourseDetails: (id) => `/courses/${id}`,
   insertRate: "/ratings",

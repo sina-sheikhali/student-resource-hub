@@ -2,7 +2,6 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "swiper/css";
-import "plyr-react/plyr.css";
 
 import LayoutWrapper from "@/components/modules/LayoutWrapper/layoutWrapper";
 

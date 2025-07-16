@@ -12,7 +12,7 @@ export default function page({ params }) {
   const [urlVideo, setUrlVideo] = useState("");
 
   const { fetchCourseDetails, courseDetails } = useCourseStore();
-  const { fetchResourcesCourse, resourcesCourse } = useResourceStore();
+  const { fetchResourcesCourse } = useResourceStore();
 
   useEffect(() => {
     fetchCourseDetails(id);
@@ -26,7 +26,7 @@ export default function page({ params }) {
 
         <div className="flex flex-col gap-6 lg:flex-row">
           <div className="lg:w-1/4">
-            <Sidebar setUrlVideo={setUrlVideo} />
+            <Sidebar setUrlVideo={setUrlVideo} urlVideo={urlVideo} />
           </div>
 
           <div className="flex flex-col gap-6 lg:w-3/4">

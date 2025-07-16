@@ -10,18 +10,22 @@ export default function Card({
   teacher,
   ratings_avg_rating,
   users_count,
+  description,
 }) {
   return (
-    <div className="flex transform flex-col gap-4 rounded-3xl border bg-white p-4 transition duration-500 hover:scale-105">
+    <div className="flex transform flex-col gap-4 rounded-3xl border bg-white p-4 transition-transform duration-200 hover:scale-105">
       <div className="">
         <Link href={`/dashboard/courses/${slug}`}>
-          <Image
-            src={`https://mmmovahed.ir/storage/${thumbnail_path}`}
-            width={200}
-            height={200}
-            className="size-full h-[200px] w-full object-cover"
-            alt=""
-          />
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+            <Image
+              src={`https://mmmovahed.ir/storage/${thumbnail_path}`}
+              alt={""}
+              fill
+              loading="lazy"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            />
+          </div>
         </Link>
       </div>
 
@@ -33,11 +37,9 @@ export default function Card({
             </span>
           </Link>
         </div>
-        <div className="text-primaryTextBoxflex w-full gap-3 text-sm">
+        <div className="text-primaryTextBoxflex h-10 w-full gap-3 text-sm">
           <p className="line-clamp-2 text-ellipsis text-gray-400">
-            دوره دیزاین پترن به شما کمک می‌کند کدهای خوانا و مقیاس‌پذیر بنویسید
-            و با یادگیری الگوهای استاندارد، به یک برنامه نویس داناتر تبدیل شوید
-            و شانس استخدام خود را افزایش دهید.
+            {description}
           </p>
         </div>
         <div className="border-primaryGray2 border-t-2 pt-2"></div>

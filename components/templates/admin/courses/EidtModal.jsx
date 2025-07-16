@@ -16,6 +16,7 @@ import useCategoryStore from "@/store/admin/useCategoryStore";
 import { useEffect, useState } from "react";
 import InputFile from "@/components/modules/InputFile/InputFile";
 import Image from "next/image";
+import useTeacherStore from "@/store/admin/useTeacherStore";
 
 export default function EidtModal({ rowId, setIsOpen }) {
   const [selectedPhoto, setSelecetedPhoto] = useState(null);
@@ -27,6 +28,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
   const { colleges, fetchAllColleges } = useCollegeStore();
   const { categories, fetchCategories } = useCategoryStore();
   const { course, updateCourse } = useCourseStore();
+  const { teachers } = useTeacherStore();
 
   // hook-form
   const {
@@ -43,6 +45,7 @@ export default function EidtModal({ rowId, setIsOpen }) {
         description: course.description,
         category_id: course.category_id,
         college_id: course.college_id,
+        teacher: course.teacher,
       });
     }
   }, [course]);
@@ -173,6 +176,47 @@ export default function EidtModal({ rowId, setIsOpen }) {
               {errors.college_id && (
                 <p className="mt-1 text-sm text-red-500">
                   {errors.college_id.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <label className="mb-1 block">مدرس</label>
+              <Controller
+                control={control}
+                name="teacher"
+                rules={{ required: "انتخاب مدرس الزامی است" }}
+                render={({ field }) => (
+                  <Select
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    dir="rtl"
+                    disabled={collegesLoading}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue
+                        placeholder={
+                          collegesLoading ? (
+                            <Loader2Icon className="h-4 w-4 animate-spin" />
+                          ) : (
+                            "انتخاب کنید"
+                          )
+                        }
+                      />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {teachers?.length > 0 &&
+                        teachers.map((teacher) => (
+                          <SelectItem key={teacher.id} value={teacher.name}>
+                            {teacher.name}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+              {errors.teacher && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.teacher.message}
                 </p>
               )}
             </div>

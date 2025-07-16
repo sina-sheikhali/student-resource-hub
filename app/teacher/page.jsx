@@ -14,12 +14,12 @@ export default function Teacher() {
   const { fetchStatistics, statistics } = useStatisticStore();
 
   useEffect(() => {
-    fetchStatistics();
+    // fetchStatistics();
   }, []);
   const cards = [
     {
       title: "دانشجویان",
-      data: statistics.total_users,
+      data: 7,
       bgColor: "from-[#f6e384] to-[#ffd500]",
       icon: AcademicCapIcon,
       iconBg: "bg-white",
@@ -27,7 +27,7 @@ export default function Teacher() {
     },
     {
       title: "دوره ها",
-      data: statistics.total_courses,
+      data: 16,
       bgColor: "from-[#ffbf96] to-[#fe7096]",
       icon: BookOpenIcon,
       iconBg: "bg-white",
@@ -35,7 +35,7 @@ export default function Teacher() {
     },
     {
       title: "اساتید",
-      data: statistics.total_teachers,
+      data: 3,
       bgColor: "from-[#90caf9] to-[#047edf]",
       icon: AcademicCapIcon,
       iconBg: "bg-white",
@@ -43,7 +43,7 @@ export default function Teacher() {
     },
     {
       title: "ادمین",
-      data: statistics.total_admins,
+      data: 2,
       bgColor: "from-[#84d9d2] to-[#07cdae]",
       icon: ClockIcon,
       iconBg: "bg-white",

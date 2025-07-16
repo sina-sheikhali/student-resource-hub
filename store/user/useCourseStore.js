@@ -3,6 +3,7 @@ import { client } from "@/client/client";
 import { userApi } from "@/api/user/api";
 import useLoadingStore from "../common/useLoadingStore";
 const useCourseStore = create((set, get) => ({
+  courses: [],
   mostWantedCourses: [],
   ratedCourses: [],
   newlyAddedCourses: [],
@@ -10,6 +11,7 @@ const useCourseStore = create((set, get) => ({
   myCourses: [],
   searchResult: [],
 
+  setCourses: (courses) => set({ courses }),
   setMostWantedCourses: (mostWantedCourses) => set({ mostWantedCourses }),
   setRatedCourses: (ratedCourses) => set({ ratedCourses }),
   setNewlyAddedCourses: (newlyAddedCourses) => set({ newlyAddedCourses }),
@@ -17,6 +19,18 @@ const useCourseStore = create((set, get) => ({
   setMyCourses: (myCourses) => set({ myCourses }),
   setSearchResult: (searchResult) => set({ searchResult }),
 
+  fetchAllCourses: () => {
+    const { setCourses } = get();
+    const { setLoading, isLoading } = useLoadingStore.getState();
+    if (isLoading("fetchAllCourses")) return;
+    setLoading("fetchAllCourses", true);
+
+    client(userApi.fetchAllCourses)
+      .then((res) => {
+        setCourses(res.data.data);
+      })
+      .finally(() => setLoading("fetchAllCourses", false));
+  },
   fetchByFilter: async (type) => {
     const { setMostWantedCourses, setRatedCourses, setNewlyAddedCourses } =
       get();

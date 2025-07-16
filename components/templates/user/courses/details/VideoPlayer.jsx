@@ -13,6 +13,8 @@ export default function VideoPlayer({ courseDetails, urlVideo }) {
     state.isLoading("registerCourseLoading"),
   );
 
+  console.log(urlVideo);
+
   const videoSrc = {
     type: "video",
     sources: [
@@ -26,8 +28,25 @@ export default function VideoPlayer({ courseDetails, urlVideo }) {
 
   return (
     <div className="flex w-full flex-col gap-5 lg:flex-row-reverse">
-      <div className="w-full overflow-hidden rounded-xl lg:w-1/2">
-        <Plyr source={videoSrc} />
+      <div className="aspect-video w-full overflow-hidden rounded-xl bg-black lg:w-2/3">
+        <Plyr
+          source={videoSrc}
+          options={{
+            controls: [
+              "play",
+              "progress",
+              "mute",
+              "volume",
+              "pip",
+              "settings",
+              "duration",
+              "current-time",
+              "airplay",
+              "fullscreen",
+            ],
+            ratio: "16:9",
+          }}
+        />
       </div>
       <div className="flex min-h-[200px] w-full flex-col gap-5 rounded-xl border bg-gray-50 p-5 shadow-md lg:w-1/2">
         <div>

@@ -37,7 +37,9 @@ export default function TableSection() {
     {
       accessorKey: "email",
       header: "ایمیل",
-      cell: (info) => info.getValue(),
+      cell: (info) => (
+        <span className="font-roboto-regular">{info.getValue()}</span>
+      ),
     },
     {
       accessorKey: "action",

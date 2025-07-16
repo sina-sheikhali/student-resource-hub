@@ -16,16 +16,19 @@ import useLoadingStore from "@/store/common/useLoadingStore";
 import { Loader2Icon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import useTeacherStore from "@/store/admin/useTeacherStore";
 
 export default function FormComp() {
   const [selectedPhoto, setSelecetedPhoto] = useState(null);
   const { fetchCategories, categories } = useCategoryStore();
   const { fetchAllColleges, colleges } = useCollegeStore();
+  const { fetchTeachers, teachers } = useTeacherStore();
   const { createCourse } = useCourseStore();
   const isLoadingStore = useLoadingStore();
   const categoriesLoading = isLoadingStore.isLoading("fetchCategoriesLoading");
   const collegesLoading = isLoadingStore.isLoading("fetchCollegesLoading");
   const createCourseLoading = isLoadingStore.isLoading("createCourseLoading");
+  const fetchTeachersLoading = isLoadingStore.isLoading("fetchTeachersLoading");
 
   const {
     control,
@@ -38,6 +41,7 @@ export default function FormComp() {
   useEffect(() => {
     fetchCategories();
     fetchAllColleges();
+    fetchTeachers();
   }, []);
 
   const onSubmit = (data) => {
@@ -164,6 +168,47 @@ export default function FormComp() {
           )}
         </div>
         <div>
+          <label className="mb-1 block">مدرس</label>
+          <Controller
+            control={control}
+            name="teacher"
+            rules={{ required: "انتخاب مدرس الزامی است" }}
+            render={({ field }) => (
+              <Select
+                onValueChange={field.onChange}
+                value={field.value}
+                dir="rtl"
+                disabled={fetchTeachersLoading}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue
+                    placeholder={
+                      fetchTeachersLoading ? (
+                        <Loader2Icon className="h-4 w-4 animate-spin" />
+                      ) : (
+                        "انتخاب کنید"
+                      )
+                    }
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  {teachers.length > 0 &&
+                    teachers.map((teacher) => (
+                      <SelectItem key={teacher.id} value={teacher.name}>
+                        {teacher.name}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.teacher && (
+            <p className="mt-1 text-sm text-red-500">
+              {errors.teacher.message}
+            </p>
+          )}
+        </div>
+        <div>
           <label className="mb-1 block">وضعیت</label>
           <Controller
             control={control}
@@ -195,7 +240,6 @@ export default function FormComp() {
             <p className="mt-1 text-sm text-red-500">{errors.status.message}</p>
           )}
         </div>
-        <div className="col-span-1"></div>
         <div className="col-span-1">
           <InputFile
             allowedTypes={["image/png", "image/jpeg"]}

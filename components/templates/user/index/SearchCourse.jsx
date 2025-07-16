@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import Card from "@/components/modules/Card/Card";
 import debounce from "lodash.debounce";
@@ -8,10 +8,15 @@ import useCourseStore from "@/store/user/useCourseStore";
 import useLoadingStore from "@/store/common/useLoadingStore";
 import { Loader2Icon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Pagination from "@/components/modules/Pagination/Pagination";
 
 export default function SearchCourses() {
   const [query, setQuery] = useState("");
   const [openSearchResult, setOpenSearchResult] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 12;
+  const resultRef = useRef(null); // برای اسکرول
 
   const { serachCourse, searchResult, setSearchResult } = useCourseStore();
   const searchCourseLoading = useLoadingStore((state) =>
@@ -29,6 +34,7 @@ export default function SearchCourses() {
     if (query.trim() !== "") {
       handleSearch(query);
       setOpenSearchResult(true);
+      setCurrentPage(1); // ریست صفحه هنگام جستجوی جدید
     } else {
       setSearchResult("");
       setOpenSearchResult(false);
@@ -37,6 +43,31 @@ export default function SearchCourses() {
       handleSearch.cancel();
     };
   }, [query, handleSearch]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (resultRef.current) {
+        resultRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, [currentPage]);
+
+  const paginatedResults = searchResult.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
+
+  const totalPages = Math.ceil(searchResult.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div className="mt-8">
@@ -53,6 +84,8 @@ export default function SearchCourses() {
       <AnimatePresence>
         {openSearchResult && (
           <motion.div
+            ref={resultRef}
+            className="pt-5"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
@@ -63,10 +96,11 @@ export default function SearchCourses() {
                 نتایج جستجو ...
               </h3>
             </div>
+
             <div className="grid min-h-[408px] grid-cols-1 gap-5 space-y-2 rounded-sm bg-gray-50 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {!searchCourseLoading ? (
-                searchResult.length > 0 ? (
-                  searchResult.map((course) => (
+                paginatedResults.length > 0 ? (
+                  paginatedResults.map((course) => (
                     <div key={course.id} className="col-span-1">
                       <Card slug={course.id} {...course} />
                     </div>
@@ -84,6 +118,17 @@ export default function SearchCourses() {
                 </div>
               )}
             </div>
+
+            {/* صفحه‌بندی */}
+            {searchResult.length > itemsPerPage && (
+              <div className="mt-6">
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

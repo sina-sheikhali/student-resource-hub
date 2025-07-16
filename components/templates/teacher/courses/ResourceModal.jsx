@@ -52,6 +52,7 @@ export default function ResourceModal({ rowId, setIsOpen }) {
       reset,
       setProgress,
       cancelUploadRef,
+      rowId,
     );
   };
   return (
